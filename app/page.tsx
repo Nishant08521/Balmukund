@@ -10,6 +10,7 @@ import WhyChooseUsPage from "./why-choose-us/page"
 import BalmukundSuperstarPage  from "./balmukund-superstar/page"
 import  ProductsShowcasePage from "./products-showcase/page"
 import ModernDesignPage from "./modern-design/page"
+import BalmukundPage from "./balmukund/page"
 export default function Page() {
   return (
     <>
@@ -18,13 +19,14 @@ export default function Page() {
       <OurProfilePage />
       <FollowOnSocialPage />
       <WhyChooseUsPage />
-      <BalmukundSuperstarPage />
+      <BalmukundPage />
+      {/* <BalmukundSuperstarPage /> */}
       <ProductsShowcasePage />
       <ModernDesignPage />
-      <Products />
-      <Benefits />
-      <About />
-      <Contact />
+      {/* <Products /> */}
+      {/* <Benefits /> */}
+      {/* <About /> */}
+      {/* <Contact /> */}
     </>
   )
 }

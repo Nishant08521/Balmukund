@@ -8,16 +8,20 @@ import { cn } from "@/lib/utils"
 
 const slides = [
   {
-    src: "/hot-rolled-steel-mill-with-glowing-billets.jpg",
-    alt: "Hot-rolled steel mill with glowing billets",
+    src: "/banner.jpg",
+    alt: "",
   },
   {
-    src: "/workers-inspecting-steel-rebar-bundles.jpg",
-    alt: "Workers inspecting steel rebar bundles",
+    src: "/banner2.jpg",
+    alt: "",
   },
   {
-    src: "/steel-i-beams-warehouse.jpg",
-    alt: "Steel I-beams stacked in a warehouse",
+    src: "/banner3.jpg",
+    alt: "Build the Feature with Steel ",
+  },
+  {
+    src: "/banner4.jpg",
+    alt: "",
   },
 ]
 
@@ -64,7 +68,7 @@ export function Hero() {
                   <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
                   
                   {/* Hero Text Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {/* <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center text-white">
                       <div className="mb-4 inline-block rounded-lg bg-yellow-400 px-6 py-3">
                         <h1 className="text-2xl md:text-3xl font-bold text-red-600">
@@ -81,7 +85,7 @@ export function Hero() {
                         Know More
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </CarouselItem>
             ))}

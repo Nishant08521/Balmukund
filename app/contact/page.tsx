@@ -1,17 +1,25 @@
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Get in touch with us for inquiries, quotes, or support
-          </p>
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/Contact/contact.jpg"
+            alt="Contact Us"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+          </div>
         </div>
       </section>
 
@@ -21,7 +29,9 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
+              <h2 className="text-4xl  mb-2">Call Us
+             </h2>
+             <h2 className="text-5xl font-bold mb-8 "> or fill the form</h2>
               
               {/* Head Office */}
               <div className="bg-secondary rounded-xl p-6 mb-6 shadow-lg">
@@ -32,9 +42,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-bold mb-2">Head Office</h3>
                     <p className="text-foreground/80">
-                      18- R.N.Mukherjee Road<br />
-                      1st Floor, Kolkata 700 001<br />
-                      West Bengal, India
+                    18- R.N.Mukherjee Road 1st Floor, Kolkata 700 001 
                     </p>
                   </div>
                 </div>
@@ -63,9 +71,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-bold mb-2">Branch Office</h3>
                     <p className="text-foreground/80">
-                      Luv Kush Tower 702<br />
-                      Exhibition Road, Patna 800001<br />
-                      Bihar, India
+                    Luv kush tower 702, exhibition road Patna 800001
                     </p>
                   </div>
                 </div>
@@ -93,13 +99,10 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2 pl-12">
                   <div className="flex justify-between">
-                    <span>Monday - Friday:</span>
-                    <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                    <span>Monday - Saturday:</span>
+                    <span className="font-semibold">10:30 AM - 7:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Saturday:</span>
-                    <span className="font-semibold">9:00 AM - 2:00 PM</span>
-                  </div>
+                 
                   <div className="flex justify-between">
                     <span>Sunday:</span>
                     <span className="font-semibold">Closed</span>
@@ -189,23 +192,23 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Map or Additional Info */}
-          <div className="bg-gradient-to-br from-secondary to-secondary/50 rounded-2xl p-12 text-center">
-            <h3 className="text-2xl font-bold mb-4">Need Assistance?</h3>
-            <p className="text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">
-              Our team is ready to help you with product inquiries, quotations, technical support, and dealer partnerships.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="tel:+913340325000" className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors">
-                <Phone className="size-5" />
-                Call Us Now
-              </a>
-              <a href="mailto:balmukundsponge@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-lg font-semibold hover:bg-foreground/90 transition-colors">
-                <Mail className="size-5" />
-                Email Us
-              </a>
-            </div>
-          </div>
+        </div>
+      </section>
+
+      {/* Full Width Map Section */}
+      <section className="w-full">
+        <div className="w-full h-[500px] md:h-[600px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.1234567890123!2d88.3543!3d22.5726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277b3c0b0b0b0%3A0x1234567890abcdef!2s18%2C%20R.N.%20Mukherjee%20Rd%2C%20Kolkata%2C%20West%20Bengal%20700001!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+            title="Balmukund Sponge - Head Office Location"
+          ></iframe>
         </div>
       </section>
     </div>

@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function ChairmanMessagePage() {
   return (
-    <div className="min-h-screen bg-white py-50">
+    <div className="min-h-screen bg-white pb-12 pt-50">
       {/* Main Content Section */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
@@ -12,7 +12,7 @@ export default function ChairmanMessagePage() {
             <div className="order-2 md:order-1">
               <div className="relative">
                 <img 
-                  src="https://balmukund.com/wp-content/uploads/2024/05/image-704-x-578.jpg" 
+                  src="/chairman.webp" 
                   alt="Shri Nawal Kumar Kanodia - Chairman & CEO" 
                   className="w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm"
                 />
@@ -85,7 +85,7 @@ export default function ChairmanMessagePage() {
             <div>
               <div className="relative">
                 <img 
-                  src="https://balmukund.com/wp-content/uploads/2024/06/abhi1.png" 
+                  src="/director.png" 
                   alt="Abhishek Kanodia - Director" 
                   className="w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm"
                 />
@@ -96,7 +96,7 @@ export default function ChairmanMessagePage() {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-4">Our Vision & Mission</h2>
@@ -121,7 +121,7 @@ export default function ChairmanMessagePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

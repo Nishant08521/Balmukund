@@ -1,105 +1,166 @@
-import { Image as ImageIcon } from "lucide-react"
+"use client"
+
+import Link from "next/link"
+import { ArrowUpRight, ArrowRight, Play } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default function GalleryPage() {
-  const galleryImages = [
-    { src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Hot Rolled Steel Mill", category: "Production" },
-    { src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "TMT Steel Bars", category: "Products" },
-    { src: "/steel-i-beams-warehouse.jpg", title: "Steel I-Beams Warehouse", category: "Facility" },
-    { src: "/sponge-iron-pellets-macro.jpg", title: "Sponge Iron Pellets", category: "Products" },
-    { src: "/pig-iron-ingots-stacked.jpg", title: "Pig Iron Ingots", category: "Products" },
-    { src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Quality Inspection", category: "Quality Control" },
+
+  const galleryItems = [
+    {
+      title: "Event",
+      image: "/Gallery/ga1.jpg",
+      href: "/event-gallery"
+    },
+    {
+      title: "Products",
+      image: "/Gallery/g2.jpg",
+      href: "/product-gallery"
+    },
+    {
+      title: "Mason Meet",
+      image: null, // Gray background
+      href: "/mason-meet-gallery"
+    }
+  ]
+
+  // Sample video data - replace with actual video URLs
+  const videos = [
+    { id: 1, title: "Video 1", thumbnail: "/steel-i-beams-warehouse.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: 2, title: "Video 2", thumbnail: "/closeup-of-tmt-steel-bars-bundled.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: 3, title: "Video 3", thumbnail: "/sponge-iron-pellets-macro.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: 4, title: "Video 4", thumbnail: "/pig-iron-ingots-stacked.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: 5, title: "Video 5", thumbnail: "/workers-inspecting-steel-rebar-bundles.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: 6, title: "Video 6", thumbnail: "/hot-rolled-steel-mill-with-glowing-billets.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
   ]
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Explore our facilities, products, and manufacturing excellence
-          </p>
-        </div>
-      </section>
-
+    <div className="min-h-screen bg-background">
       {/* Main Content */}
-      <section className="py-16 bg-background">
-        <div className="mx-auto max-w-6xl px-4">
-          {/* Introduction */}
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="text-lg text-foreground/80">
-              Take a visual tour of Balmukund Super Steel's state-of-the-art facilities, high-quality products, and commitment to manufacturing excellence. Our gallery showcases the technology, craftsmanship, and dedication that goes into every product we create.
-            </p>
-          </div>
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl font-bold mb-12">Balmukund Gallery</h1>
 
-          {/* Gallery Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                <div className="aspect-[4/3] relative">
-                  <img 
-                    src={image.src} 
-                    alt={image.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <div className="text-xs font-semibold mb-1 text-accent">{image.category}</div>
-                      <div className="text-lg font-bold">{image.title}</div>
+          {/* Gallery Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {galleryItems.map((item, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="aspect-[4/5] relative">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gray-300"></div>
+                  )}
+                  
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-4">
+                    <div>
+                      <h3 className="text-white text-2xl font-bold mb-2">{item.title}</h3>
+                      {item.title === "Mason Meet" && (
+                        <div className="w-12 h-0.5 bg-orange-500"></div>
+                      )}
                     </div>
+                    
+                    {/* View More Button */}
+                    <Link
+                      href={item.href}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors w-fit"
+                    >
+                      View more
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Categories */}
-          <div className="grid md:grid-cols-4 gap-6 mb-16">
-            <div className="bg-secondary rounded-xl p-6 text-center shadow-lg">
-              <div className="size-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <ImageIcon className="size-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Production</h3>
-              <p className="text-sm text-foreground/70">Manufacturing processes and facilities</p>
-            </div>
-
-            <div className="bg-secondary rounded-xl p-6 text-center shadow-lg">
-              <div className="size-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <ImageIcon className="size-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Products</h3>
-              <p className="text-sm text-foreground/70">Our range of steel products</p>
-            </div>
-
-            <div className="bg-secondary rounded-xl p-6 text-center shadow-lg">
-              <div className="size-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <ImageIcon className="size-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Facility</h3>
-              <p className="text-sm text-foreground/70">State-of-the-art infrastructure</p>
-            </div>
-
-            <div className="bg-secondary rounded-xl p-6 text-center shadow-lg">
-              <div className="size-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <ImageIcon className="size-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Quality Control</h3>
-              <p className="text-sm text-foreground/70">Testing and inspection processes</p>
-            </div>
+      {/* Dreams Do Come True / Let's Grow Together Section */}
+      <section className="w-full">
+        <div className="grid md:grid-cols-2 min-h-[600px]">
+          {/* Left Column - White Background */}
+          <div className="bg-white p-12 md:p-16 flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Dreams Do Come True
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Balmukund Super Steel
+            </h3>
+            <p className="text-lg text-foreground/70 leading-relaxed">
+              Indulge into the visual experience of grand world-wide foreign tour programmes arranged by Balmukund Super Steel for the dealers and partners along with their families! Who says dreams don't come true!
+            </p>
           </div>
 
-          {/* Video Section Placeholder */}
-          <div className="bg-gradient-to-br from-primary to-foreground text-primary-foreground rounded-2xl p-12 text-center">
-            <h3 className="text-3xl font-bold mb-4">Video Tour</h3>
-            <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Take a virtual tour of our manufacturing facility and see our processes in action
-            </p>
-            <div className="aspect-video bg-black/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <ImageIcon className="size-16 mx-auto mb-4 opacity-50" />
-                <p className="text-primary-foreground/70">Video content coming soon</p>
-              </div>
+          {/* Right Column - Orange Background */}
+          <div className="bg-orange-500 p-12 md:p-16 flex flex-col justify-between relative overflow-hidden">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                Let's Grow
+              </h2>
+              <h3 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                Together
+              </h3>
+              <p className="text-lg text-white/90 leading-relaxed mb-8">
+                Balmukund Super Steel for the dealers and partners along with their families! Who says dreams don't come true!
+              </p>
+              
+              {/* View More Button */}
+              <button className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-white rounded-lg font-semibold hover:bg-foreground/90 transition-colors">
+                View More
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Video Grid - 6 Videos */}
+            <div className="grid grid-cols-3 gap-3 mt-8">
+              {videos.map((video) => (
+                <Dialog key={video.id}>
+                  <DialogTrigger asChild>
+                    <button
+                      className="group relative aspect-video overflow-hidden rounded-lg border-2 border-orange-400 hover:border-white transition-all cursor-pointer"
+                    >
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Play className="w-6 h-6 text-orange-500 ml-1" fill="currentColor" />
+                        </div>
+                      </div>
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl p-0 bg-black border-0">
+                    <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
+                      <iframe
+                        src={video.videoUrl}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title={video.title}
+                      ></iframe>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ))}
             </div>
           </div>
         </div>

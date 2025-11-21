@@ -5,18 +5,27 @@ export default function ChairmanMessagePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Leadership Message</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Vision, passion, and dedication towards excellence
-          </p>
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/Chairman/chairman.jpg"
+            alt="Company Overview"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+            {/* <h1 className="text-4xl md:text-5xl font-bold mb-4 text-orange-500">Company Overview</h1> */}
+           
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-16 bg-background">
+      <section className="pt-16 pb-2bg-background">
         <div className="mx-auto max-w-6xl px-4">
           {/* Chairman Section */}
           <div className="mb-16">
@@ -46,15 +55,13 @@ export default function ChairmanMessagePage() {
                 <p className="text-foreground/80 leading-relaxed mb-4">
                 By an unintentional glance over a factory kindled an idea of entrepreneurship in my mind. On deep contemplation on my vision, passion and dedication, I ventured towards the realization of that aspirational dream, which is now a big name in Steel Industry outfit, Balmukund Super Steel. With no prior background in this sector, I tried creating a business conglomerate with the technology and expertise to match the highest international standards. My dream not only changed my perspective on life, but also the lives of thousands of people. My employees, clients and the common people have benefitted from the company's products and other activities. My mantra has been "Whatever you do, excel in it”. And in that, lies the philosophy and success of Balmukund Group of Industries.
                 </p>
-                <p className="text-foreground/80 leading-relaxed">
-                  Our journey is built on three fundamental pillars: uncompromising quality, customer satisfaction, and continuous innovation. We believe in not just meeting industry standards, but exceeding them, ensuring that every product that bears our name stands as a testament to excellence.
-                </p>
+           
               </div>
             </div>
           </div>
 
           {/* Director Section */}
-          <div>
+          {/* <div>
             <div className="bg-gradient-to-br from-secondary to-secondary/50 rounded-2xl p-8 md:p-12 shadow-xl">
               <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
                 <div className="w-48 h-48 rounded-xl overflow-hidden flex-shrink-0 bg-accent/10">
@@ -83,10 +90,10 @@ export default function ChairmanMessagePage() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Vision & Mission */}
-          <div className="grid md:grid-cols-2 gap-8 mt-16">
+          {/* <div className="grid md:grid-cols-2 gap-8 mt-16">
             <div className="bg-primary text-primary-foreground rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-primary-foreground/90 leading-relaxed">
@@ -99,7 +106,7 @@ export default function ChairmanMessagePage() {
                 To manufacture and deliver world-class steel products that meet international standards while remaining accessible and affordable. We are committed to sustainable practices and continuous improvement in all aspects of our business.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

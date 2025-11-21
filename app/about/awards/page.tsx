@@ -1,22 +1,36 @@
 import { Award, Trophy, Medal, Star } from "lucide-react"
+import Image from "next/image"
 
 export default function AwardsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Awards & Acknowledgement</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Since day one we have strived to be the Earth's most customer-centric company. We're honored to be recognized for the work we do on behalf of our customers, employees, and communities around the world. Here are some recent awards we've received.
-          </p>
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/Awards/award.jpg"
+            alt="Company Overview"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+            {/* <h1 className="text-4xl md:text-5xl font-bold mb-4 text-orange-500">Company Overview</h1> */}
+           
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-16 bg-background">
+      <section className="pt-16 pb-2bg-background">
         <div className="mx-auto max-w-6xl px-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Awards & Acknowledgement</h1>
+          <p className="text-lg md:text-xl text-black mb-20 ">
+            Since day one we have strived to be the Earth's most customer-centric company. We're honored to be recognized for the work we do on behalf of our customers, employees, and communities around the world. Here are some recent awards we've received.
+          </p>
           {/* Awards Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-secondary rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
@@ -61,61 +75,7 @@ export default function AwardsPage() {
           </div>
 
           {/* Badges Section */}
-          <div className="bg-gradient-to-br from-primary to-foreground text-primary-foreground rounded-2xl p-12">
-            <h2 className="text-3xl font-bold text-center mb-8">Quality Badges</h2>
-            <div className="flex flex-wrap justify-center items-center gap-12">
-              <div className="text-center">
-                <div className="w-32 h-32 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
-                  <img 
-                    src="/placeholder.svg?height=96&width=96&query=ISO%209001" 
-                    alt="ISO 9001" 
-                    className="w-24 h-24 object-contain"
-                  />
-                </div>
-                <div className="text-sm font-medium">ISO 9001</div>
-              </div>
-              <div className="text-center">
-                <div className="w-32 h-32 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
-                  <img 
-                    src="/placeholder.svg?height=96&width=96&query=ISI" 
-                    alt="ISI Mark" 
-                    className="w-24 h-24 object-contain"
-                  />
-                </div>
-                <div className="text-sm font-medium">ISI Mark</div>
-              </div>
-              <div className="text-center">
-                <div className="w-32 h-32 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
-                  <img 
-                    src="/placeholder.svg?height=96&width=96&query=Make%20in%20India" 
-                    alt="Make in India" 
-                    className="w-24 h-24 object-contain"
-                  />
-                </div>
-                <div className="text-sm font-medium">Make in India</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Achievement Stats */}
-          <div className="grid md:grid-cols-4 gap-6 mt-16">
-            <div className="text-center p-6 bg-secondary rounded-lg">
-              <div className="text-4xl font-bold text-accent mb-2">25+</div>
-              <div className="text-sm text-foreground/70">Years of Excellence</div>
-            </div>
-            <div className="text-center p-6 bg-secondary rounded-lg">
-              <div className="text-4xl font-bold text-accent mb-2">4</div>
-              <div className="text-sm text-foreground/70">Major Awards</div>
-            </div>
-            <div className="text-center p-6 bg-secondary rounded-lg">
-              <div className="text-4xl font-bold text-accent mb-2">2005</div>
-              <div className="text-sm text-foreground/70">First Excellence Award</div>
-            </div>
-            <div className="text-center p-6 bg-secondary rounded-lg">
-              <div className="text-4xl font-bold text-accent mb-2">2018</div>
-              <div className="text-sm text-foreground/70">Latest Recognition</div>
-            </div>
-          </div>
+      
         </div>
       </section>
     </div>

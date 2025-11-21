@@ -1,16 +1,24 @@
 import { FileText, Shield, Leaf, CheckCircle } from "lucide-react"
+import Image from "next/image"
 
 export default function CompliancePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Compliance</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Committed to environmental regulations and industry standards
-          </p>
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/overview.jpg"
+            alt="Compliance"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+          </div>
         </div>
       </section>
 

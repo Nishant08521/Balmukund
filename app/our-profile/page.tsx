@@ -5,38 +5,38 @@ export default function OurProfilePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Main Content Section */}
-      <section className="py-16 bg-white">
+      <section className="py-5 bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Section - Composite Image */}
             <div className="order-2 md:order-1">
               <div className="relative">
-                <div className="grid grid-cols-2 gap-0 h-96 rounded-lg overflow-hidden shadow-lg">
+                <div className="grid grid-cols-1 gap-0 h-96 rounded-lg overflow-hidden shadow-lg">
                   {/* Left Part - Construction Site */}
-                  <div className="relative bg-gradient-to-br from-blue-400 to-blue-600">
+                  {/* <div className="relative bg-gradient-to-br from-blue-400 to-blue-600">
                     <div className="absolute inset-0 bg-[url('/workers-inspecting-steel-rebar-bundles.jpg')] bg-cover bg-center opacity-80"></div>
                     <div className="absolute inset-0 bg-blue-900/20"></div>
                     <div className="absolute bottom-4 left-4 text-white">
                       <div className="text-sm font-semibold">Construction Site</div>
                     </div>
-                  </div>
+                  </div> */}
                   
                   {/* Right Part - Finished Building */}
                   <div className="relative bg-gradient-to-br from-amber-400 to-amber-600">
-                    <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-80"></div>
+                    <div className="absolute inset-0 bg-[url('/profile.webp')] bg-cover bg-center "></div>
                     <div className="absolute inset-0 bg-amber-900/20"></div>
                     <div className="absolute bottom-4 right-4 text-white">
-                      <div className="text-sm font-semibold">Finished Building</div>
+                      {/* <div className="text-sm font-semibold">Finished Building</div> */}
                     </div>
                   </div>
                 </div>
                 
                 {/* Center Steel Bar Overlay */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-gradient-to-b from-gray-600 to-gray-800 rounded-full shadow-lg">
+                {/* <div className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-gradient-to-b from-gray-600 to-gray-800 rounded-full shadow-lg">
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform -rotate-90 text-white text-xs font-bold whitespace-nowrap">
                     BALMUKUND SUPER STEEL
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -82,7 +82,7 @@ export default function OurProfilePage() {
       </section>
 
       {/* Additional Stats Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-4">Why Choose Balmukund Super Steel</h2>
@@ -111,7 +111,7 @@ export default function OurProfilePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

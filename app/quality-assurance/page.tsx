@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Shield, CheckCircle, Microscope, Award, Settings, FileCheck, Plus, X } from "lucide-react"
+import Image from "next/image"
 
 export default function QualityAssurancePage() {
   const [expandedItem, setExpandedItem] = useState(0)
@@ -36,8 +37,24 @@ export default function QualityAssurancePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/Quality/quality.jpg"
+            alt="Quality Assurance"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+          </div>
+        </div>
+      </section>
       {/* Header Section */}
-      <section className="py-16 bg-white">
+      <section className="pt-16 pb-2bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">Quality Assurance</h1>
           <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
@@ -74,69 +91,16 @@ export default function QualityAssurancePage() {
               ))}
             </div>
 
-            {/* Right Section - Circular Diagram */}
+            {/* Right Section - Image */}
             <div className="flex justify-center items-center">
-              <div className="relative w-96 h-96">
-                {/* Central Text */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <h2 className="text-2xl font-bold text-green-600 mb-2">QUALITY</h2>
-                    <h2 className="text-2xl font-bold text-green-600">PRODUCTS</h2>
-                  </div>
-                </div>
-
-                {/* Circular Spheres */}
-                <div className="absolute inset-0">
-                  {/* Top Right - High Standards */}
-                  <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="text-center">
-                      <div className="text-xs font-bold text-white leading-tight">HIGH</div>
-                      <div className="text-xs font-bold text-white leading-tight">STANDARDS</div>
-                    </div>
-                  </div>
-
-                  {/* Top Left - Super Trust */}
-                  <div className="absolute top-8 left-8 w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="text-center">
-                      <div className="text-xs font-bold text-white leading-tight">SUPER</div>
-                      <div className="text-xs font-bold text-white leading-tight">TRUST</div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Left - Customer Satisfaction */}
-                  <div className="absolute bottom-8 left-8 w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="text-center">
-                      <div className="text-xs font-bold text-white leading-tight">CUSTOMER</div>
-                      <div className="text-xs font-bold text-white leading-tight">SATISFACTION</div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Right - High Strength */}
-                  <div className="absolute bottom-8 right-8 w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="text-center">
-                      <div className="text-xs font-bold text-white leading-tight">HIGH</div>
-                      <div className="text-xs font-bold text-white leading-tight">STRENGTH</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Golden Connecting Lines */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
-                  <circle
-                    cx="200"
-                    cy="200"
-                    r="120"
-                    fill="none"
-                    stroke="#D4AF37"
-                    strokeWidth="2"
-                    strokeDasharray="5,5"
-                  />
-                  {/* Lines connecting to spheres */}
-                  <line x1="200" y1="200" x2="280" y2="120" stroke="#D4AF37" strokeWidth="2" />
-                  <line x1="200" y1="200" x2="120" y2="120" stroke="#D4AF37" strokeWidth="2" />
-                  <line x1="200" y1="200" x2="120" y2="280" stroke="#D4AF37" strokeWidth="2" />
-                  <line x1="200" y1="200" x2="280" y2="280" stroke="#D4AF37" strokeWidth="2" />
-                </svg>
+              <div className="relative w-full max-w-md">
+                <Image
+                  src="/Quality/quality1.png"
+                  alt="Quality Assurance"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
           </div>

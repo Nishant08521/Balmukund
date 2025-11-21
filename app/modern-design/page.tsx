@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ArrowRight, Star, Award, Users, TrendingUp, Shield, Zap, Trophy, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -66,34 +66,44 @@ export default function ModernDesignPage() {
   const leftImages = [
     {
       id: 1,
-      src: "/images/hero-1.jpg",
+      src: "/custmor.jpg",
       alt: "Steel Manufacturing",
-      title: "Advanced Manufacturing"
+      // title: "Advanced Manufacturing",
+      celebrationText: "15+",
+      celebrationSubtext: "Celebrating"
     },
     {
       id: 2,
-      src: "/images/hero-2.jpg",
+      src: "/custmor2.jpg",
       alt: "Quality Control",
-      title: "Quality Assurance"
+      // title: "Quality Assurance",
+      celebrationText: "1250+",
+      celebrationSubtext: "Connected Dealers"
     },
     {
       id: 3,
-      src: "/images/hero-3.jpg",
+      src: "/customer3.jpg",
       alt: "Steel Products",
-      title: "Premium Products"
+      // title: "Premium Products",
+      celebrationText: "98500+",
+      celebrationSubtext: "Happy Customers"
     },
-    {
-      id: 4,
-      src: "/hot-rolled-steel-mill-with-glowing-billets.jpg",
-      alt: "Steel Mill",
-      title: "Modern Steel Mill"
-    },
-    {
-      id: 5,
-      src: "/steel-i-beams-warehouse.jpg",
-      alt: "Steel Warehouse",
-      title: "Storage Facility"
-    }
+    // {
+    //   id: 4,
+    //   src: "/custmor4.jpg",
+    //   alt: "Steel Mill",
+    //   // title: "Modern Steel Mill",
+    //   celebrationText: "25+",
+    //   celebrationSubtext: "Years Experience"
+    // },
+    // {
+    //   id: 5,
+    //   src: "/steel-i-beams-warehouse.jpg",
+    //   alt: "Steel Warehouse",
+    //   title: "Storage Facility",
+    //   celebrationText: "99%",
+    //   celebrationSubtext: "Quality Rate"
+    // }
   ]
 
   // Auto-slide testimonials
@@ -129,37 +139,6 @@ export default function ModernDesignPage() {
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + leftImages.length) % leftImages.length)
   }
-
-  const features = [
-    {
-      id: 1,
-      icon: Star,
-      title: "Premium Quality",
-      description: "High-grade steel products with superior strength and durability",
-      color: "from-blue-500 to-blue-700"
-    },
-    {
-      id: 2,
-      icon: Shield,
-      title: "Certified Standards",
-      description: "ISO certified manufacturing processes and quality assurance",
-      color: "from-purple-500 to-purple-700"
-    },
-    {
-      id: 3,
-      icon: Users,
-      title: "Expert Team",
-      description: "Experienced professionals with decades of industry knowledge",
-      color: "from-indigo-500 to-indigo-700"
-    },
-    {
-      id: 4,
-      icon: TrendingUp,
-      title: "Innovation",
-      description: "Cutting-edge technology and continuous improvement",
-      color: "from-cyan-500 to-cyan-700"
-    }
-  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
@@ -203,7 +182,7 @@ export default function ModernDesignPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left Section - Sliding Image Carousel */}
-              <div className="relative bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-12 min-h-[500px] overflow-hidden">
+              <div className="relative rounded-2xl p-12 min-h-[500px] overflow-hidden">
                 {/* Sliding Images Background */}
                 <div className="absolute inset-0">
                   <div className="relative w-full h-full">
@@ -213,7 +192,6 @@ export default function ModernDesignPage() {
                       fill
                       className="object-cover transition-all duration-1000 ease-in-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/80 to-yellow-500/80"></div>
                   </div>
                 </div>
                 
@@ -232,15 +210,19 @@ export default function ModernDesignPage() {
                 </button>
 
                 {/* Image Title Overlay */}
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg z-20">
+                {/* <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg z-20">
                   <div className="text-sm font-semibold text-gray-800">{leftImages[currentImage].title}</div>
-                </div>
+                </div> */}
                 
                 {/* Celebration Card */}
-                <div className="relative z-10 bg-white rounded-xl p-8 shadow-2xl max-w-xs mx-auto">
+                <div className="relative z-10 bg-white rounded-xl p-8 shadow-2xl max-w-xs mx-auto transition-all duration-500">
                   <div className="text-center">
-                    <div className="text-6xl font-bold text-orange-500 mb-2">15+</div>
-                    <div className="text-lg text-gray-600 font-medium">Celebrating</div>
+                    <div className="text-6xl font-bold text-orange-500 mb-2 transition-all duration-500">
+                      {leftImages[currentImage].celebrationText}
+                    </div>
+                    <div className="text-lg text-gray-600 font-medium transition-all duration-500">
+                      {leftImages[currentImage].celebrationSubtext}
+                    </div>
                   </div>
                 </div>
 
@@ -339,93 +321,61 @@ export default function ModernDesignPage() {
         </section>
 
         {/* Awards Section */}
-        <section className="py-16 px-4">
+        <section className=" px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
+            {/* <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Awards & Recognition</h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 Celebrating excellence and industry recognition
               </p>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {/* Award 1 - Golden Plaque */}
+              {/* Image 1 */}
               <div className="relative group">
-                <div className="aspect-square bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl p-6 flex items-center justify-center relative overflow-hidden">
-                  {/* Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20"></div>
-                  <div className="absolute top-2 left-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
-                  <div className="absolute top-4 right-3 w-1 h-1 bg-yellow-300 rounded-full animate-ping opacity-40" style={{animationDelay: '0.5s'}}></div>
-                  <div className="absolute bottom-3 left-4 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping opacity-50" style={{animationDelay: '1s'}}></div>
+                <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/award1.webp"
+                    alt="Award 1"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
                   
-                  {/* Award Content */}
-                  <div className="relative z-10 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg mx-auto mb-3 flex items-center justify-center shadow-lg">
-                      <Award className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="text-white text-sm font-semibold">Excellence Award</div>
-                    <div className="text-yellow-300 text-xs">2023</div>
-                  </div>
+              {/* Image 2 */}
+              <div className="relative group">
+                <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/award2.webp"
+                    alt="Award 2"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
 
-              {/* Award 2 - Trophy */}
+              {/* Image 3 */}
               <div className="relative group">
-                <div className="aspect-square bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl p-6 flex items-center justify-center relative overflow-hidden">
-                  {/* Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20"></div>
-                  <div className="absolute top-3 right-2 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
-                  <div className="absolute bottom-2 left-3 w-1 h-1 bg-yellow-300 rounded-full animate-ping opacity-40" style={{animationDelay: '0.7s'}}></div>
-                  
-                  {/* Award Content */}
-                  <div className="relative z-10 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full mx-auto mb-3 flex items-center justify-center shadow-lg">
-                      <Trophy className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="text-white text-sm font-semibold">Industry Leader</div>
-                    <div className="text-yellow-300 text-xs">2022</div>
-                  </div>
+                <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/award3.webp"
+                    alt="Award 3"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
 
-              {/* Award 3 - Silver Medal */}
+              {/* Image 4 */}
               <div className="relative group">
-                <div className="aspect-square bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl p-6 flex items-center justify-center relative overflow-hidden">
-                  {/* Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20"></div>
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-50"></div>
-                  <div className="absolute bottom-4 left-2 w-1 h-1 bg-yellow-300 rounded-full animate-ping opacity-30" style={{animationDelay: '1.2s'}}></div>
-                  
-                  {/* Award Content */}
-                  <div className="relative z-10 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-500 rounded-lg mx-auto mb-3 flex items-center justify-center shadow-lg">
-                      <div className="text-2xl font-bold text-white">25</div>
-                    </div>
-                    <div className="text-white text-sm font-semibold">Years</div>
-                    <div className="text-yellow-300 text-xs">Anniversary</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Award 4 - Certificate */}
-              <div className="relative group">
-                <div className="aspect-square bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl p-6 flex items-center justify-center relative overflow-hidden">
-                  {/* Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20"></div>
-                  <div className="absolute top-3 left-3 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
-                  <div className="absolute bottom-2 right-2 w-1 h-1 bg-yellow-300 rounded-full animate-ping opacity-40" style={{animationDelay: '0.8s'}}></div>
-                  
-                  {/* Award Content */}
-                  <div className="relative z-10 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg mx-auto mb-3 flex items-center justify-center shadow-lg">
-                      <div className="text-white text-xs font-bold text-center">
-                        <div>ISO</div>
-                        <div>9001</div>
-                      </div>
-                    </div>
-                    <div className="text-white text-sm font-semibold">Certified</div>
-                    <div className="text-yellow-300 text-xs">Quality</div>
-                  </div>
+                <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/award4.webp"
+                    alt="Award 4"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -433,7 +383,7 @@ export default function ModernDesignPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-16 px-4">
+        {/* <section className="py-16 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
@@ -454,10 +404,10 @@ export default function ModernDesignPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
-        <section className="py-20 px-4">
+        {/* <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-12 shadow-xl border border-white/20">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -483,7 +433,7 @@ export default function ModernDesignPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   )

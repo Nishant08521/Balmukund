@@ -1,10 +1,58 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   return (
     <footer className="mt-16 relative overflow-hidden">
-      {/* Animated Steel Industry Background */}
+      {/* Top Banner Section */}
+      <div className="bg-gray-100 py-6 relative z-20 px-8">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex items-center justify-between">
+            {/* Left Side - Logo */}
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative w-20 h-20">
+                <Image
+                  src="/logo.png"
+                  alt="Balmukund Super Steel logo"
+                  width={90}
+                  height={90}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            
+            </Link>
+
+            {/* Right Side - Buttons */}
+            <div className="flex items-center gap-4">
+              {/* Careers Button */}
+              <Link
+                href="/careers"
+                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-md transition-colors hover:bg-[#FF6600] hover:text-white"
+              >
+                Careers
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              {/* Vertical Line */}
+             
+
+              {/* Contact Button */}
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#FF6600] text-white px-6 py-3 rounded-md transition-colors hover:bg-black"
+              >
+                Contact
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Line after top banner */}
+      <div className="border-b border-gray-300 relative z-20"></div>
+            {/* Animated Steel Industry Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Steel Manufacturing Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
@@ -60,7 +108,7 @@ export function Footer() {
               <ul className="space-y-2">
                 <li><Link href="/about/overview" className="text-sm text-gray-700 hover:text-gray-900">Overview</Link></li>
                 <li><Link href="/about/at-a-glance" className="text-sm text-gray-700 hover:text-gray-900">At a Glance</Link></li>
-                <li><Link href="/chairman-message" className="text-sm text-gray-700 hover:text-gray-900">Chairman message</Link></li>
+                <li><Link href="/about/chairman-message" className="text-sm text-gray-700 hover:text-gray-900">Chairman message</Link></li>
                 <li><Link href="/about/board-of-directors" className="text-sm text-gray-700 hover:text-gray-900">Boards of Directors</Link></li>
                 <li><Link href="/about/awards" className="text-sm text-gray-700 hover:text-gray-900">Awards & Acknowledgement</Link></li>
               </ul>
@@ -84,7 +132,7 @@ export function Footer() {
               <ul className="space-y-2">
                 <li><Link href="/quality-assurance" className="text-sm text-gray-700 hover:text-gray-900">Quality Assurance</Link></li>
                 <li><Link href="/gallery" className="text-sm text-gray-700 hover:text-gray-900">Media & Gallery</Link></li>
-                <li><Link href="/balmukund-superstar" className="text-sm text-gray-700 hover:text-gray-900">Voice of Balmukund</Link></li>
+                <li><Link href="/voice-of-balmukund" className="text-sm text-gray-700 hover:text-gray-900">Voice of Balmukund</Link></li>
                 <li><Link href="/careers" className="text-sm text-gray-700 hover:text-gray-900">Careers</Link></li>
                 <li><Link href="/contact" className="text-sm text-gray-700 hover:text-gray-900">Contact Us</Link></li>
               </ul>

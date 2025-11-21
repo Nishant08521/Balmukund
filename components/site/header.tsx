@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ContactBar } from "@/components/site/contact-bar"
@@ -41,6 +41,17 @@ export function Header() {
   const pathname = usePathname() || "/"
   const [open, setOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 0)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const isActive = (href?: string) => {
     if (!href) return false
@@ -48,41 +59,52 @@ export function Header() {
     return pathname.startsWith(href)
   }
 
+  const isHomePage = pathname === "/"
+
   return (
     <header className="sticky top-0 z-50 w-full bg-background">
-      {/* Top contact bar */}
-      <ContactBar />
+      {/* Top contact bar - only show on home page */}
+      {isHomePage && (
+        <div className={cn(
+          "transition-all duration-300 ease-in-out overflow-hidden",
+          isScrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+        )}>
+          <ContactBar />
+        </div>
+      )}
 
       {/* Brand row */}
       <div className="border-b bg-background w-full">
-        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 py-[1px] flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3" aria-label="Balmukund Super Steel - Home">
             <img
-              src="/placeholder-logo.svg"
+              src="/logo.png"
               alt="Balmukund Super Steel logo"
-              className="h-10 w-10 rounded-full border bg-card"
+              className="h-22 w-22 "
             />
-            <span className="text-base md:text-lg font-semibold text-foreground">Balmukund Super Steel</span>
+
           </Link>
           <div className="hidden md:flex items-center gap-4">
+            <Link href="/voice-of-balmukund" className="hover:opacity-80 transition-opacity">
+              <img
+                src={"/voice.gif?height=32&width=96&query=badge%20quality"}
+                alt="voice of balmukund"
+                className="h-10 w-34 "
+              />
+            </Link>
             <img
-              src={"/placeholder.svg?height=32&width=96&query=badge%20quality"}
-              alt="Quality badge"
-              className="h-8 w-24 object-contain"
-            />
-            <img
-              src={"/placeholder.svg?height=32&width=96&query=make%20in%20india"}
+              src={"/make.png?height=50&width=100&query=make%20in%20india"}
               alt="Make in India badge"
-              className="h-8 w-24 object-contain"
+              className="h-12 w-28 "
             />
           </div>
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <Button asChild>
               <Link href="/contact" aria-label="Get a quote">
                 Get a quote
               </Link>
             </Button>
-          </div>
+          </div> */}
           <button
             className="md:hidden inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm"
             onClick={() => setOpen((v) => !v)}

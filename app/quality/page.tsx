@@ -6,13 +6,19 @@ export default function QualityPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 text-background py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Quality Assurance</h1>
-            <p className="text-lg md:text-xl text-background/90 max-w-3xl mx-auto">
-              Excellence in every bar, strength in every structure
-            </p>
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/overview.jpg"
+            alt="Quality Assurance"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { Shield, Zap, DollarSign, Flame, Droplet, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function TMTBarsPage() {
   const features = [
@@ -43,117 +44,80 @@ export default function TMTBarsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/closeup-of-tmt-steel-bars-bundled.jpg')] bg-cover bg-center opacity-20"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">TMT Bars</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mb-8">
-            Thermo-Mechanically Treated bars with a tough outer core and soft inner core for superior strength and flexibility
-          </p>
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/contact">Get a Quote</Link>
-          </Button>
+      <section className="relative">
+        <div className="relative w-full">
+          <Image
+            src="/Tmt/tmt1.jpg"
+            alt="TMT Bars"
+            width={1920}
+            height={283}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+          </div>
         </div>
       </section>
 
-      {/* Introduction */}
+      {/* Text Content Section */}
       <section className="py-16 bg-background">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">About TMT Bars</h2>
-              <p className="text-lg text-foreground/80 mb-4">
-                TMT bars or Thermo-Mechanically Treated bars are high-strength reinforcement bars having a tough outer core and a soft inner core. To produce best TMT, best quality iron ore is required.
-              </p>
-              <p className="text-lg text-foreground/80 mb-4">
-                Most companies outsource iron ore, but we get it from our own mines so that quality is up to the mark. Best iron ore contains all required ingredients for superior strength and durability.
-              </p>
+        <div className="mx-auto max-w-6xl px-4 space-y-5">
+          {/* About TMT Bars */}
+          <div>
+            <h2 className="text-3xl font-bold mb-6">TMT Bars</h2>
+            <div className="space-y-4">
               <p className="text-lg text-foreground/80">
-                Balmukund Super TMT bars are designed for the construction of your dream projects - both Commercial & Non-Commercial.
+              TMT bars or Thermo-Mechanically Treated bars are high-strength reinforcement bars having a tough outer core and a soft inner core. The very first step of the manufacturing process involves passing the steel wires through a rolling mill stand. Thereafter, these rolled steel wires are again passed through the Tempcore water cooling system. While passing the wires through the water cooling system, the water pressure is optimised. The sudden quenching and drastic change in temperature toughen the outer layer of the steel bar, thus making it super tough and durable. Once this process is over, the TMT bars are subject to atmospheric cooling. This is done in order to equalise the temperature difference between the soft inner core and the tough exterior. Once the TMT bar cools down, it slowly turns into a ferrite-pearlite mass. The inner core remains soft giving the TMT bar great tensile strength and elongation point. This design is unique to the TMT bars and gives superior ductility to the bars. Also, this unique manufacturing technique and the absence of Cold stress make this bar corrosion-resistant and boost its weldability.
               </p>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-              <img 
-                src="/closeup-of-tmt-steel-bars-bundled.jpg" 
-                alt="Balmukund TMT Bars" 
-                className="w-full h-full object-cover"
-              />
+              
             </div>
           </div>
 
           {/* Features Grid */}
-          <h3 className="text-3xl font-bold mb-8 text-center">Key Features</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {features.map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <div key={index} className="bg-secondary rounded-xl p-6 shadow-lg">
-                  <Icon className="size-10 text-accent mb-4" />
-                  <h4 className="text-xl font-bold mb-2">{feature.title}</h4>
-                  <p className="text-foreground/80">{feature.description}</p>
-                </div>
-              )
-            })}
-          </div>
+        
 
           {/* Specifications */}
-          <div className="bg-gradient-to-br from-secondary to-secondary/50 rounded-2xl p-8 mb-16">
-            <h3 className="text-2xl font-bold mb-6 text-center">Technical Specifications</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left p-4 font-semibold">Grade</th>
-                    <th className="text-left p-4 font-semibold">Available Sizes</th>
-                    <th className="text-left p-4 font-semibold">Min. Tensile Strength</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {specifications.map((spec, index) => (
-                    <tr key={index} className="border-b">
-                      <td className="p-4 font-semibold text-accent">{spec.grade}</td>
-                      <td className="p-4">{spec.sizes}</td>
-                      <td className="p-4">{spec.tensile}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+       
 
           {/* Benefits */}
-          <div className="bg-gradient-to-br from-primary to-foreground text-primary-foreground rounded-2xl p-12">
-            <h3 className="text-3xl font-bold mb-8 text-center">Cost Benefits</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">20-30%</div>
-                <p className="text-primary-foreground/90">Reduction in Construction Cost</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">17%</div>
-                <p className="text-primary-foreground/90">Steel Savings vs Normal TMT</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">100%</div>
-                <p className="text-primary-foreground/90">Quality Assurance</p>
-              </div>
+         
+        </div>
+      </section>
+
+      {/* Images Section - 3 Images */}
+      <section className="py-5 bg-background">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold mb-5 ml-10">Tmt Manufacturing Process :-</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="/Tmt/tmt2.jpg" 
+                alt="TMT Bars 1" 
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="/Tmt/tmt3.jpg" 
+                alt="TMT Bars 2" 
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="/hot-rolled-steel-mill-with-glowing-billets.jpg" 
+                alt="TMT Bars 3" 
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-secondary">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h3 className="text-3xl font-bold mb-4">Ready to Build with Balmukund TMT Bars?</h3>
-          <p className="text-lg text-foreground/80 mb-8">
-            Contact us today for pricing and availability
-          </p>
-          <Button asChild size="lg">
-            <Link href="/contact">Contact Us Now</Link>
-          </Button>
-        </div>
-      </section>
+   
     </div>
   )
 }
