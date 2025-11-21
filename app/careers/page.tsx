@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Briefcase, Users, Lightbulb, Heart, Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 

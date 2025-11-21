@@ -7,7 +7,7 @@ export default function AtAGlancePage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/At/at1.jpg"
+            src="/at1.jpg"
             alt="Company Overview"
             className="w-full h-auto object-cover"
           />
@@ -25,7 +25,7 @@ export default function AtAGlancePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/At/at2.jpg" 
+                src="/at2.jpg" 
                 alt="Our Work - Steel Manufacturing" 
                 className="w-full h-full object-cover"
               />

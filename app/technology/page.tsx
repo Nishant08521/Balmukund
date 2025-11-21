@@ -6,7 +6,7 @@ export default function TechnologyPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Tec/tec.jpg"
+            src="/tec.jpg"
             alt="Technology"
             className="w-full h-auto object-cover"
           />

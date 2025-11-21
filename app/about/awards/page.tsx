@@ -7,7 +7,7 @@ export default function AwardsPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Awards/award.jpg"
+            src="/award.jpg"
             alt="Company Overview"
             className="w-full h-auto object-cover"
           />

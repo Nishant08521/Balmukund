@@ -39,7 +39,7 @@ export default function QualityAssurancePage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Quality/quality.jpg"
+            src="/quality.jpg"
             alt="Quality Assurance"
             className="w-full h-auto object-cover"
           />
@@ -91,7 +91,7 @@ export default function QualityAssurancePage() {
             <div className="flex justify-center items-center">
               <div className="relative w-full max-w-md">
                 <img
-                  src="/Quality/quality1.png"
+                  src="/quality1.png"
                   alt="Quality Assurance"
                   className="w-full h-auto object-cover"
                 />

@@ -28,7 +28,7 @@ export default function BoardOfDirectorsPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Boards/board.jpg"
+            src="/board.jpg"
             alt="Board of Directors"
             className="w-full h-auto object-cover"
           />

@@ -7,7 +7,7 @@ export default function ChairmanMessagePage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Chairman/chairman.jpg"
+            src="/chairman.jpg"
             alt="Company Overview"
             className="w-full h-auto object-cover"
           />

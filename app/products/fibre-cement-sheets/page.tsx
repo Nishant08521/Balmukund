@@ -9,7 +9,7 @@ export default function FibreCementSheetsPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Fibre/fib1.jpg"
+            src="/fib1.jpg"
             alt="Fibre Cement Sheets"
             className="w-full h-80 object-cover"
           />
@@ -64,7 +64,7 @@ export default function FibreCementSheetsPage() {
             <div className="flex items-center justify-center">
               <div className="w-full max-w-md relative aspect-square">
                 <img
-                  src="/Fibre/fib2.jpg"
+                  src="/fib2.jpg"
                   alt="Fiber Cement Sheets"
                   className="w-full h-full object-contain rounded-lg shadow-lg"
                 />

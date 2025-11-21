@@ -9,7 +9,7 @@ export default function SpongeIronPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Sponge/sp.jpg"
+            src="/sp.jpg"
             alt="Sponge Iron"
             className="w-full h-90 object-cover"
           />

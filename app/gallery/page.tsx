@@ -13,12 +13,12 @@ export default function GalleryPage() {
   const galleryItems = [
     {
       title: "Event",
-      image: "/Gallery/ga1.jpg",
+      image: "/ga1.jpg",
       href: "/event-gallery"
     },
     {
       title: "Products",
-      image: "/Gallery/g2.jpg",
+      image: "/g2.jpg",
       href: "/product-gallery"
     },
     {

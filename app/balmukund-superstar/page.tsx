@@ -46,7 +46,7 @@ export default function BalmukundSuperstarPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Balmukundsuperstar/balmuk.jpg"
+            src="/balmuk.jpg"
             alt="Balmukund SuperStar"
             className="w-full h-auto object-cover"
           />
@@ -100,7 +100,7 @@ export default function BalmukundSuperstarPage() {
             <div className="flex justify-center items-center">
               <div className="relative w-full max-w-md">
                 <img
-                  src="/Balmukundsuperstar/balmuk.jpg"
+                  src="/quality1.png"
                   alt="Balmukund SuperStar"
                   className="w-full h-auto object-cover"
                 />

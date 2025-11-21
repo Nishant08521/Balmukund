@@ -9,7 +9,7 @@ export default function PigIronPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Pig/pig1.jpg"
+            src="/pig1.jpg"
             alt="Pig Iron"
             className="w-full h-80 object-cover"
           />
@@ -72,7 +72,7 @@ export default function PigIronPage() {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/Pig/pig2.png"
+                src="/pig2.png"
                 alt="Pig Iron"
                 className="w-full h-full object-cover"
               />

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -51,7 +52,7 @@ export default function ContactPage() {
       <section className="relative">
         <div className="relative w-full">
           <Image
-            src="/Contact/contact.jpg"
+            src="/contact.jpg"
             alt="Contact Us"
             width={1920}
             height={283}

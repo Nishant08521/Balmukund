@@ -46,9 +46,9 @@ export default function TMTBarsPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/Tmt/tmt1.jpg"
+            src="/tmt1.jpg"
             alt="TMT Bars"
-            className="w-full h-auto object-cover"
+            className="w-full h-80 object-cover"
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -89,14 +89,14 @@ export default function TMTBarsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
               <img 
-                src="/Tmt/tmt2.jpg" 
+                src="/tmt2.jpg" 
                 alt="TMT Bars 1" 
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
             </div>
             <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
               <img 
-                src="/Tmt/tmt3.jpg" 
+                src="/tmt3.jpg" 
                 alt="TMT Bars 2" 
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />

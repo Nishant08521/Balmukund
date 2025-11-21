@@ -10,16 +10,11 @@ export function Footer() {
           <div className="flex items-center justify-between">
             {/* Left Side - Logo */}
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-20 h-20">
-                <Image
-                  src="/logo.png"
-                  alt="Balmukund Super Steel logo"
-                  width={90}
-                  height={90}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            
+              <img
+                src="/logo.png"
+                alt="Balmukund Super Steel logo"
+                className="w-20 h-20 object-contain"
+              />
             </Link>
 
             {/* Right Side - Buttons */}
