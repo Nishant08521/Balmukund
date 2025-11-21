@@ -1,7 +1,6 @@
 import { Boxes, Anvil, CheckCircle, Package2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function PigIronPage() {
   return (
@@ -9,13 +8,10 @@ export default function PigIronPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Pig/pig1.jpg"
             alt="Pig Iron"
-            width={1920}
-            height={283}
             className="w-full h-80 object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">

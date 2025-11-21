@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import { ArrowUpRight, Play } from "lucide-react"
-import Image from "next/image"
 import {
   Dialog,
   DialogContent,
@@ -84,13 +83,10 @@ export default function VoiceOfBalmukundPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/overview.jpg"
             alt="Voice of Balmukund"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">

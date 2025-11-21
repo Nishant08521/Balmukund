@@ -63,15 +63,15 @@ export default function FollowOnSocialPage() {
       ></div>
 
       {/* Header */}
-      <div className="relative z-10 text-center py-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-red-600 mb-4 drop-shadow-lg">
+      <div className="relative z-10 text-center py-6 sm:py-8 md:py-12">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 mb-4 drop-shadow-lg">
           Follow On Social
         </h1>
       </div>
 
       {/* Main Content - Three Column Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-16">
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-8 sm:pb-12 md:pb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           
           {/* Facebook Section */}
           <div className="bg-white rounded-lg shadow-xl overflow-hidden">
@@ -328,10 +328,11 @@ function YouTubeFeedCompact({ channelId, apiKey }: { channelId: string; apiKey: 
             className="group relative block aspect-video rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
           >
             <div className="relative w-full h-full">
-              <img
+              <Image
                 src={thumbnail}
                 alt={video.snippet.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">

@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle2, Shield, Award, Microscope } from "lucide-react"
 
@@ -8,13 +7,10 @@ export default function QualityPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/overview.jpg"
             alt="Quality Assurance"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -46,11 +42,10 @@ export default function QualityPage() {
               </div>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
-              <Image
+              <img
                 src="/workers-inspecting-steel-rebar-bundles.jpg"
                 alt="Quality inspection"
-                fill
-                className="object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>

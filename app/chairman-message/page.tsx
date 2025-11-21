@@ -5,9 +5,9 @@ export default function ChairmanMessagePage() {
   return (
     <div className="min-h-screen bg-white pb-12 pt-50">
       {/* Main Content Section */}
-      <section className="py-16 bg-white">
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
             {/* Left Section - Image */}
             <div className="order-2 md:order-1">
               <div className="relative">
@@ -20,30 +20,30 @@ export default function ChairmanMessagePage() {
             </div>
 
             {/* Right Section - Text Content */}
-            <div className="order-1 md:order-2 space-y-6">
+            <div className="order-1 md:order-2 space-y-4 sm:space-y-6">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-black mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 sm:mb-4">
                   BALMUKUND SUPER STEEL
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-bold text-black mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-6">
                   Chairman's Message
                 </h2>
               </div>
 
               <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-black leading-relaxed mb-6">
+                <p className="text-base sm:text-lg text-black leading-relaxed mb-4 sm:mb-6">
                   By an unintentional glance over a factory kindled an idea of entrepreneurship in my mind. On deep contemplation on my vision, passion and dedication, I ventured towards the realization of that aspirational dream, which is now a big name in Steel Industry outfit, Balmukund Super Steel.
                 </p>
               </div>
 
-              <div className="border-t pt-6">
-                <p className="text-lg font-bold text-black">
+              <div className="border-t pt-4 sm:pt-6">
+                <p className="text-base sm:text-lg font-bold text-black">
                   CEO: SHRI NAWAL KUMAR KANODIA
                 </p>
               </div>
 
-              <div className="pt-4">
-                <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
+              <div className="pt-3 sm:pt-4">
+                <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white text-sm sm:text-base">
                   <Link href="/about/chairman-message">
                     Read more
                   </Link>
@@ -55,25 +55,25 @@ export default function ChairmanMessagePage() {
       </section>
 
       {/* Additional Content Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
             {/* Left Section - Text Content */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 sm:mb-4">
                   Director: Abhishek Kanodia
                 </h2>
               </div>
 
               <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-black leading-relaxed">
+                <p className="text-base sm:text-lg text-black leading-relaxed">
                   At Balmukund Super Steel, we take great pride in leading the steel industry and providing our cherished clients with superior goods and cutting-edge solutions. Our development and success over the past few years have been fueled by our dedication to excellence and client satisfaction. Our committed team of experts puts in endless effort to make sure we not only fulfill but also surpass industry norms and client expectations.
                 </p>
               </div>
 
-              <div className="pt-4">
-                <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
+              <div className="pt-3 sm:pt-4">
+                <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white text-sm sm:text-base">
                   <Link href="/about/chairman-message">
                     Read more
                   </Link>

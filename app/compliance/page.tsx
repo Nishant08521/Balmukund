@@ -1,5 +1,4 @@
 import { FileText, Shield, Leaf, CheckCircle } from "lucide-react"
-import Image from "next/image"
 
 export default function CompliancePage() {
   return (
@@ -7,13 +6,10 @@ export default function CompliancePage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/overview.jpg"
             alt="Compliance"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">

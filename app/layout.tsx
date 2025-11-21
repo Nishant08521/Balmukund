@@ -9,9 +9,12 @@ import { Footer } from "@/components/site/footer"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Balmukund Super Steel",
+  description: "Balmukund Super Steel - Leading manufacturer of TMT bars, Sponge Iron, Pig Iron, and Fibre Cement Sheets",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({

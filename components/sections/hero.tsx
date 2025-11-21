@@ -52,7 +52,7 @@ export function Hero() {
   const autoplay = useRef(Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true }))
 
   return (
-    <section className="relative">
+    <section className="relative pb-48 md:pb-0">
       <div className="relative">
         <Carousel opts={{ loop: true }} plugins={[autoplay.current as any]} className="relative" aria-label="Hero showcase">
           <CarouselContent className="rounded-none border-0">
@@ -62,8 +62,7 @@ export function Hero() {
                   <img
                     src={s.src || "/placeholder.svg?height=800&width=1600&query=steel+industry+banner"}
                     alt={s.alt}
-                    className="h-full w-full object-cover"
-                    loading="eager"
+                    className="w-full h-full object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
                   
@@ -95,14 +94,15 @@ export function Hero() {
         </Carousel>
       </div>
 
-      {/* Overlay cards: positioned over the hero image */}
+      {/* Overlay cards: positioned over the hero image on desktop, at bottom on mobile */}
       <div
         className="pointer-events-auto absolute left-1/2 w-full -translate-x-1/2 z-10"
         style={{ bottom: '-220px' }}
         aria-hidden="true"
       >
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid gap-0 overflow-hidden rounded-xl border bg-white/95 backdrop-blur-sm shadow-2xl md:grid-cols-4">
+          {/* Desktop: 4 cards in a row */}
+          <div className="hidden md:grid gap-0 overflow-hidden rounded-xl border bg-white/95 backdrop-blur-sm shadow-2xl md:grid-cols-4">
             {overlayItems.map((item, index) => {
               const Icon = item.icon
               return (
@@ -119,6 +119,31 @@ export function Hero() {
                     </div>
                     <h3 className="mb-3 text-lg font-bold text-foreground">{item.title}</h3>
                     <p className="text-sm leading-relaxed text-foreground/70">{item.desc}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          
+          {/* Mobile: 4 cards in 2x2 grid at bottom */}
+          <div className="grid grid-cols-2 gap-0 overflow-hidden rounded-xl border bg-white/95 backdrop-blur-sm shadow-2xl md:hidden">
+            {overlayItems.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <div 
+                  key={item.title} 
+                  className={cn(
+                    "p-4",
+                    index < 2 && "border-b border-gray-200",
+                    index % 2 === 0 && index < 3 && "border-r border-gray-200"
+                  )}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
+                      <Icon className="h-5 w-5 text-accent" aria-hidden />
+                    </div>
+                    <h3 className="mb-1 text-sm font-bold text-foreground">{item.title}</h3>
+                    <p className="text-xs leading-relaxed text-foreground/70 line-clamp-2">{item.desc}</p>
                   </div>
                 </div>
               )

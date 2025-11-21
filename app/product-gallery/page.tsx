@@ -72,11 +72,12 @@ export default function ProductGalleryPage() {
                   </div>
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl p-0 bg-black border-0">
-                  <div className="relative">
-                    <img
+                  <div className="relative w-full h-[80vh]">
+                    <Image
                       src={image.src}
                       alt={image.title}
-                      className="w-full h-auto max-h-[80vh] object-contain"
+                      fill
+                      className="object-contain"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                       <h3 className="text-2xl font-bold mb-2">{image.title}</h3>

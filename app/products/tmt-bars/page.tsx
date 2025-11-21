@@ -1,7 +1,6 @@
 import { Shield, Zap, DollarSign, Flame, Droplet, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function TMTBarsPage() {
   const features = [
@@ -46,13 +45,10 @@ export default function TMTBarsPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Tmt/tmt1.jpg"
             alt="TMT Bars"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">

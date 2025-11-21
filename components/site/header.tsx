@@ -80,22 +80,22 @@ export function Header() {
             <img
               src="/logo.png"
               alt="Balmukund Super Steel logo"
-              className="h-22 w-22 "
+              className="h-22 w-22"
             />
 
           </Link>
           <div className="hidden md:flex items-center gap-4">
             <Link href="/voice-of-balmukund" className="hover:opacity-80 transition-opacity">
               <img
-                src={"/voice.gif?height=32&width=96&query=badge%20quality"}
+                src="/voice.gif"
                 alt="voice of balmukund"
-                className="h-10 w-34 "
+                className="h-10 w-34"
               />
             </Link>
             <img
-              src={"/make.png?height=50&width=100&query=make%20in%20india"}
+              src="/make.png"
               alt="Make in India badge"
-              className="h-12 w-28 "
+              className="h-12 w-28"
             />
           </div>
           {/* <div className="hidden md:block">

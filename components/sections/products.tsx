@@ -41,12 +41,11 @@ export function Products() {
                 <CardTitle className="text-lg">{p.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="relative overflow-hidden rounded-md border">
+                <div className="relative overflow-hidden rounded-md border h-40">
                   <img
                     src={p.img || "/placeholder.svg"}
                     alt={`${p.title} illustration`}
-                    className="h-40 w-full object-cover"
-                    loading="lazy"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="text-sm text-foreground/70">{p.desc}</p>

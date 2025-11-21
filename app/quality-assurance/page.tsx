@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Shield, CheckCircle, Microscope, Award, Settings, FileCheck, Plus, X } from "lucide-react"
-import Image from "next/image"
 
 export default function QualityAssurancePage() {
   const [expandedItem, setExpandedItem] = useState(0)
@@ -39,13 +38,10 @@ export default function QualityAssurancePage() {
     <div className="min-h-screen bg-white">
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Quality/quality.jpg"
             alt="Quality Assurance"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -94,11 +90,9 @@ export default function QualityAssurancePage() {
             {/* Right Section - Image */}
             <div className="flex justify-center items-center">
               <div className="relative w-full max-w-md">
-                <Image
+                <img
                   src="/Quality/quality1.png"
                   alt="Quality Assurance"
-                  width={500}
-                  height={500}
                   className="w-full h-auto object-cover"
                 />
               </div>

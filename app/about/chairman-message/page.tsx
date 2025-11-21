@@ -1,5 +1,4 @@
 import { Quote } from "lucide-react"
-import Image from "next/image"
 
 export default function ChairmanMessagePage() {
   return (
@@ -7,13 +6,10 @@ export default function ChairmanMessagePage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Chairman/chairman.jpg"
             alt="Company Overview"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -31,7 +27,7 @@ export default function ChairmanMessagePage() {
           <div className="mb-16">
             <div className="bg-secondary rounded-2xl p-8 md:p-12 shadow-xl">
               <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
-                <div className="w-48 h-48 rounded-xl overflow-hidden flex-shrink-0 bg-accent/10">
+                <div className="w-48 h-48 rounded-xl overflow-hidden flex-shrink-0 bg-accent/10 relative">
                   <img 
                     src="https://balmukund.com/wp-content/uploads/2024/05/image-704-x-578.jpg" 
                     alt="Chairman - Shri Nawal Kumar Kanodia" 

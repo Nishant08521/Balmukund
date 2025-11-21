@@ -5,13 +5,13 @@ export default function OurProfilePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Main Content Section */}
-      <section className="py-5 bg-white">
+      <section className="py-5 sm:py-8 md:py-12 bg-white">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
             {/* Left Section - Composite Image */}
             <div className="order-2 md:order-1">
               <div className="relative">
-                <div className="grid grid-cols-1 gap-0 h-96 rounded-lg overflow-hidden shadow-lg">
+                <div className="grid grid-cols-1 gap-0 h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-lg">
                   {/* Left Part - Construction Site */}
                   {/* <div className="relative bg-gradient-to-br from-blue-400 to-blue-600">
                     <div className="absolute inset-0 bg-[url('/workers-inspecting-steel-rebar-bundles.jpg')] bg-cover bg-center opacity-80"></div>
@@ -41,36 +41,36 @@ export default function OurProfilePage() {
             </div>
 
             {/* Right Section - Text Content */}
-            <div className="order-1 md:order-2 space-y-6">
+            <div className="order-1 md:order-2 space-y-4 sm:space-y-6">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6">
                   Our Profile
                 </h1>
               </div>
 
               <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-black leading-relaxed mb-6">
+                <p className="text-base sm:text-lg text-black leading-relaxed mb-4 sm:mb-6">
                   We are Balmukund Super Steel, redefining Bihar's TMT Bar market. We are experts of the best iron & steel products for the construction of your dream projects - both Commercial & Non Commercial. Balmukund TMT confirms ISO : 9001 and international level and ISI on national level. Balmukund means ultra rich features that bring about reduction of 20-30% in construction cost in the following manner-
                 </p>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex items-start gap-2 sm:gap-3">
                   <div className="mt-1 size-2 rounded-full bg-accent flex-shrink-0"></div>
-                  <span className="text-lg text-black">More Coverage.</span>
+                  <span className="text-base sm:text-lg text-black">More Coverage.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2 sm:gap-3">
                   <div className="mt-1 size-2 rounded-full bg-accent flex-shrink-0"></div>
-                  <span className="text-lg text-black">More Strength.</span>
+                  <span className="text-base sm:text-lg text-black">More Strength.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2 sm:gap-3">
                   <div className="mt-1 size-2 rounded-full bg-accent flex-shrink-0"></div>
-                  <span className="text-lg text-black">Long Term Strength.</span>
+                  <span className="text-base sm:text-lg text-black">Long Term Strength.</span>
                 </div>
               </div>
 
-              <div className="pt-6">
-                <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
+              <div className="pt-4 sm:pt-6">
+                <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white text-sm sm:text-base">
                   <Link href="/about/overview">
                     Read more
                   </Link>

@@ -3,7 +3,6 @@
 
 import { useState } from "react"
 import { Plus, X } from "lucide-react"
-import Image from "next/image"
 
 export default function BalmukundSuperstarPage() {
   const [expandedItem, setExpandedItem] = useState(0)
@@ -46,13 +45,10 @@ export default function BalmukundSuperstarPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Balmukundsuperstar/balmuk.jpg"
             alt="Balmukund SuperStar"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -103,11 +99,9 @@ export default function BalmukundSuperstarPage() {
             {/* Right Section - Image */}
             <div className="flex justify-center items-center">
               <div className="relative w-full max-w-md">
-                <Image
+                <img
                   src="/Balmukundsuperstar/balmuk.jpg"
                   alt="Balmukund SuperStar"
-                  width={500}
-                  height={500}
                   className="w-full h-auto object-cover"
                 />
               </div>

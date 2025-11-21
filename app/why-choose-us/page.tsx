@@ -39,23 +39,23 @@ export default function WhyChooseUsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-green-500 flex">
+    <div className="min-h-screen bg-green-500 flex flex-col md:flex-row">
       {/* Fixed Left Side */}
-      <div className="w-1/2 p-12 flex flex-col justify-center">
-        <div className="max-w-md">
-          <h2 className="text-green-200 text-lg font-semibold mb-4 uppercase tracking-wide">
+      <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
+        <div className="max-w-md mx-auto md:mx-0">
+          <h2 className="text-green-200 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 uppercase tracking-wide">
             BALMUKUND SUPER STEEL
           </h2>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
             Why Choose Us
           </h1>
           
-          <p className="text-lg text-white leading-relaxed mb-8">
+          <p className="text-base sm:text-lg text-white leading-relaxed mb-6 sm:mb-8">
             Balmukund Super Steel's assurance of quality has contributed to its ongoing success, highly marketable services and products.
           </p>
           
-          <Button asChild className="bg-white text-black hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg">
+          <Button asChild className="bg-white text-black hover:bg-gray-100 font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-lg text-sm sm:text-base">
             <Link href="/about/overview">
               Know More
             </Link>
@@ -64,28 +64,28 @@ export default function WhyChooseUsPage() {
       </div>
 
       {/* Scrollable Right Side with Snap Scrolling */}
-      <div className="w-1/2 bg-green-600 overflow-y-auto snap-y snap-mandatory h-screen scrollbar-hide">
+      <div className="w-full md:w-1/2 bg-green-600 overflow-y-auto snap-y snap-mandatory h-[60vh] sm:h-[70vh] md:h-screen scrollbar-hide">
         {features.map((feature, index) => {
           const Icon = feature.icon
           return (
-            <div key={index} className="h-screen snap-start flex items-center justify-center p-12">
-              <div className="text-white text-center max-w-lg">
-                <div className="mb-8">
-                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Icon className="w-12 h-12 text-white" />
+            <div key={index} className="min-h-full snap-start flex items-center justify-center p-4 sm:p-6 md:p-12">
+              <div className="text-white text-center max-w-lg px-4">
+                <div className="mb-4 sm:mb-6 md:mb-8">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <Icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" />
                   </div>
                   {feature.subtitle ? (
                     <div>
-                      <h3 className="text-4xl font-bold mb-2">{feature.title}</h3>
-                      <h4 className="text-3xl font-bold mb-2">{feature.subtitle}</h4>
-                      <h5 className="text-4xl font-bold">{feature.brand}</h5>
+                      <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">{feature.title}</h3>
+                      <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2">{feature.subtitle}</h4>
+                      <h5 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{feature.brand}</h5>
                     </div>
                   ) : (
-                    <h3 className="text-4xl font-bold">{feature.title}</h3>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{feature.title}</h3>
                   )}
                 </div>
                 
-                <p className="text-xl leading-relaxed text-white/90">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/90">
                   {feature.description}
                 </p>
               </div>
@@ -94,50 +94,50 @@ export default function WhyChooseUsPage() {
         })}
         
         {/* Quality Assurance Section */}
-        <div className="h-screen snap-start flex items-center justify-center p-12">
-          <div className="text-white text-center max-w-4xl">
-            <h3 className="text-4xl font-bold mb-8">Quality Assurance</h3>
-            <p className="text-xl leading-relaxed text-white/90 mb-12">
+        <div className="min-h-full snap-start flex items-center justify-center p-4 sm:p-6 md:p-12">
+          <div className="text-white text-center max-w-4xl px-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 md:mb-8">Quality Assurance</h3>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/90 mb-6 sm:mb-8 md:mb-12">
               Our state-of-the-art manufacturing facility ensures every product meets the highest standards. We use advanced testing equipment and rigorous quality control processes to guarantee consistency and reliability.
             </p>
             
-            <div className="grid grid-cols-2 gap-8">
-              <div className="bg-white/10 rounded-lg p-6">
-                <h4 className="text-2xl font-bold mb-2">15+ Years</h4>
-                <p className="text-lg text-white/80">Industry Experience</p>
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+              <div className="bg-white/10 rounded-lg p-4 sm:p-5 md:p-6">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">15+ Years</h4>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80">Industry Experience</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-6">
-                <h4 className="text-2xl font-bold mb-2">98K+</h4>
-                <p className="text-lg text-white/80">Happy Customers</p>
+              <div className="bg-white/10 rounded-lg p-4 sm:p-5 md:p-6">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">98K+</h4>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80">Happy Customers</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-6">
-                <h4 className="text-2xl font-bold mb-2">1250+</h4>
-                <p className="text-lg text-white/80">Dealers Network</p>
+              <div className="bg-white/10 rounded-lg p-4 sm:p-5 md:p-6">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">1250+</h4>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80">Dealers Network</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-6">
-                <h4 className="text-2xl font-bold mb-2">ISO 9001</h4>
-                <p className="text-lg text-white/80">Certified Quality</p>
+              <div className="bg-white/10 rounded-lg p-4 sm:p-5 md:p-6">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">ISO 9001</h4>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80">Certified Quality</p>
               </div>
             </div>
           </div>
         </div>
         
         {/* Testimonials Section */}
-        <div className="h-screen snap-start flex items-center justify-center p-12">
-          <div className="text-white text-center max-w-4xl">
-            <h3 className="text-4xl font-bold mb-12">What Our Customers Say</h3>
-            <div className="space-y-8">
-              <div className="bg-white/10 rounded-lg p-8">
-                <p className="text-xl italic mb-6">
+        <div className="min-h-full snap-start flex items-center justify-center p-4 sm:p-6 md:p-12">
+          <div className="text-white text-center max-w-4xl px-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 md:mb-12">What Our Customers Say</h3>
+            <div className="space-y-4 sm:space-y-6 md:space-y-8">
+              <div className="bg-white/10 rounded-lg p-4 sm:p-6 md:p-8">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl italic mb-3 sm:mb-4 md:mb-6">
                   "Balmukund Super Steel has been our trusted partner for over 5 years. Their quality and service are unmatched."
                 </p>
-                <p className="text-lg font-semibold">- Construction Company, Patna</p>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">- Construction Company, Patna</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-8">
-                <p className="text-xl italic mb-6">
+              <div className="bg-white/10 rounded-lg p-4 sm:p-6 md:p-8">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl italic mb-3 sm:mb-4 md:mb-6">
                   "The strength and durability of Balmukund TMT bars have exceeded our expectations. Highly recommended!"
                 </p>
-                <p className="text-lg font-semibold">- Infrastructure Developer, Kolkata</p>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">- Infrastructure Developer, Kolkata</p>
               </div>
             </div>
           </div>

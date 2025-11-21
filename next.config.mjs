@@ -24,6 +24,11 @@ const nextConfig = {
         hostname: '**.fbcdn.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'balmukund.com',
+        pathname: '/**',
+      },
     ],
   },
 }

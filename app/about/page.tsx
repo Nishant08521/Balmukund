@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Users, TrendingUp, Shield } from "lucide-react"
 

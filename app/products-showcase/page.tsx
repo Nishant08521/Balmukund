@@ -51,14 +51,14 @@ export default function ProductsShowcasePage() {
       ></div>
 
       {/* Hover Areas */}
-      <div className="relative h-screen z-20">
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-screen z-20">
         {products.map((product, index) => (
           <div
             key={product.id}
             className={`absolute h-full transition-all duration-300 ${
-              index === 0 ? 'left-0 w-1/3' : 
-              index === 1 ? 'left-1/3 w-1/3' : 
-              'left-2/3 w-1/3'
+              index === 0 ? 'left-0 w-full md:w-1/3' : 
+              index === 1 ? 'left-0 md:left-1/3 w-full md:w-1/3' : 
+              'left-0 md:left-2/3 w-full md:w-1/3'
             }`}
             onMouseEnter={() => setHoveredCard(product.id)}
             onMouseLeave={() => setHoveredCard(null)}
@@ -82,7 +82,7 @@ export default function ProductsShowcasePage() {
       </div>
 
       {/* Product Cards */}
-      <div className="absolute bottom-0 left-0 right-0 h-96 pointer-events-none z-30">
+      <div className="absolute bottom-0 left-0 right-0 h-auto md:h-96 pointer-events-none z-30">
         {products.map((product, index) => (
           <div
             key={product.id}
@@ -91,27 +91,27 @@ export default function ProductsShowcasePage() {
                 ? 'bottom-0 opacity-100'
                 : 'bottom-[-300px] opacity-0'
             } ${
-              index === 0 ? 'left-4 w-80' : 
-              index === 1 ? 'left-1/2 transform -translate-x-1/2 w-80' : 
-              'right-4 w-80'
+              index === 0 ? 'left-2 sm:left-4 right-2 sm:right-auto sm:w-80' : 
+              index === 1 ? 'left-1/2 transform -translate-x-1/2 w-[calc(100%-1rem)] sm:w-80' : 
+              'right-2 sm:right-4 left-auto sm:left-auto sm:w-80'
             }`}
             onMouseEnter={() => setHoveredCard(product.id)}
             onMouseLeave={() => setHoveredCard(null)}
           >
             <Link href={product.href} className="block">
-              <div className={`${product.bgColor} ${product.textColor} p-6 rounded-lg shadow-2xl relative cursor-pointer`}>
+              <div className={`${product.bgColor} ${product.textColor} p-4 sm:p-6 rounded-lg shadow-2xl relative cursor-pointer`}>
                 {/* Speech Bubble Pointer */}
-                <div className={`absolute -bottom-2 left-8 w-4 h-4 ${product.bgColor} transform rotate-45`}></div>
+                <div className={`hidden md:block absolute -bottom-2 left-8 w-4 h-4 ${product.bgColor} transform rotate-45`}></div>
                 
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold mb-2">{product.number}</div>
-                  <h3 className="text-2xl font-bold mb-4">{product.title}</h3>
-                  <p className="text-sm leading-relaxed mb-6 opacity-90">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{product.number}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">{product.title}</h3>
+                  <p className="text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 opacity-90">
                     {product.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold">View More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span className="text-xs sm:text-sm font-semibold">View More</span>
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </div>
                 </div>
               </div>
@@ -121,8 +121,8 @@ export default function ProductsShowcasePage() {
       </div>
 
       {/* Product Labels (Always Visible) */}
-      <div className="absolute bottom-8 left-0 right-0 pointer-events-none z-30">
-        <div className="flex justify-between px-8">
+      <div className="absolute bottom-4 sm:bottom-8 left-0 right-0 pointer-events-none z-30">
+        <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 px-4 sm:px-8">
           {products.map((product, index) => (
             <Link
               key={product.id}
@@ -133,9 +133,9 @@ export default function ProductsShowcasePage() {
                   : 'opacity-100 transform translate-y-0'
               }`}
             >
-              <div className="bg-black/70 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-black/80 transition-colors">
-                <div className="text-lg font-bold">{product.number}</div>
-                <div className="text-sm">{product.title}</div>
+              <div className="bg-black/70 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg cursor-pointer hover:bg-black/80 transition-colors">
+                <div className="text-sm sm:text-base md:text-lg font-bold">{product.number}</div>
+                <div className="text-xs sm:text-sm">{product.title}</div>
               </div>
             </Link>
           ))}
@@ -143,8 +143,8 @@ export default function ProductsShowcasePage() {
       </div>
 
       {/* Instructions */}
-      <div className="absolute top-8 left-8 bg-white/90 p-4 rounded-lg shadow-lg">
-        <h2 className="text-lg font-bold text-gray-900 mb-2">Our Products</h2>
+      <div className="absolute top-4 sm:top-8 left-2 sm:left-4 md:left-8 bg-white/90 p-3 sm:p-4 rounded-lg shadow-lg">
+        <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">Our Products</h2>
         {/* <p className="text-sm text-gray-600">Hover over each section to learn more about our products</p> */}
       </div>
     </div>

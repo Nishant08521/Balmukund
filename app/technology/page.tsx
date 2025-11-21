@@ -1,4 +1,3 @@
-import Image from "next/image"
 
 export default function TechnologyPage() {
   return (
@@ -6,13 +5,10 @@ export default function TechnologyPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Tec/tec.jpg"
             alt="Technology"
-            width={1920}
-            height={283}
             className="w-full h-auto object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -87,11 +83,11 @@ export default function TechnologyPage() {
             </div>
 
             <div className="flex items-center justify-center">
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-md relative aspect-square">
                 <img
                   src="/struct.webp"
                   alt="Building construction illustration"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function ModernDesignPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -178,19 +177,18 @@ export default function ModernDesignPage() {
       {/* Main Content */}
       <div className="relative z-10">
         {/* Hero Section - Yellow Celebration with Steel Rebars */}
-        <section className="py-20 px-4">
+        <section className="py-8 sm:py-12 md:py-20 px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
               {/* Left Section - Sliding Image Carousel */}
-              <div className="relative rounded-2xl p-12 min-h-[500px] overflow-hidden">
+              <div className="relative rounded-2xl p-4 sm:p-6 md:p-12 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] overflow-hidden">
                 {/* Sliding Images Background */}
                 <div className="absolute inset-0">
                   <div className="relative w-full h-full">
-                    <Image
+                    <img
                       src={leftImages[currentImage].src}
                       alt={leftImages[currentImage].alt}
-                      fill
-                      className="object-cover transition-all duration-1000 ease-in-out"
+                      className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
                     />
                   </div>
                 </div>
@@ -198,15 +196,15 @@ export default function ModernDesignPage() {
                 {/* Image Navigation Arrows */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors z-20"
+                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors z-20"
                 >
-                  <ChevronLeft className="w-5 h-5 text-gray-700" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors z-20"
+                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-colors z-20"
                 >
-                  <ChevronRight className="w-5 h-5 text-gray-700" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                 </button>
 
                 {/* Image Title Overlay */}
@@ -215,19 +213,19 @@ export default function ModernDesignPage() {
                 </div> */}
                 
                 {/* Celebration Card */}
-                <div className="relative z-10 bg-white rounded-xl p-8 shadow-2xl max-w-xs mx-auto transition-all duration-500">
+                <div className="relative z-10 bg-white rounded-xl p-4 sm:p-6 md:p-8 shadow-2xl max-w-xs mx-auto transition-all duration-500">
                   <div className="text-center">
-                    <div className="text-6xl font-bold text-orange-500 mb-2 transition-all duration-500">
+                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-orange-500 mb-2 transition-all duration-500">
                       {leftImages[currentImage].celebrationText}
                     </div>
-                    <div className="text-lg text-gray-600 font-medium transition-all duration-500">
+                    <div className="text-sm sm:text-base md:text-lg text-gray-600 font-medium transition-all duration-500">
                       {leftImages[currentImage].celebrationSubtext}
                     </div>
                   </div>
                 </div>
 
                 {/* Image Dots Indicator */}
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+                <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
                   {leftImages.map((_, index) => (
                     <button
                       key={index}
@@ -241,47 +239,45 @@ export default function ModernDesignPage() {
               </div>
 
               {/* Right Section - Customer Testimonial */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">CLIENTS</div>
-                  <div className="text-4xl md:text-5xl font-bold text-slate-800">
-                    Our <span className="block">Customers</span> <span className="text-6xl md:text-7xl">Speak</span>
+                  <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-wider mb-2">CLIENTS</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800">
+                    Our <span className="block">Customers</span> <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Speak</span>
                   </div>
                 </div>
                 
                 {/* Testimonials Carousel */}
                 <div className="relative">
                   {/* Customer Image */}
-                  <div className="mb-4 flex justify-center">
-                    <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                      <Image
+                  <div className="mb-3 sm:mb-4 flex justify-center">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                      <img
                         src={testimonials[currentTestimonial].image}
                         alt={testimonials[currentTestimonial].name}
-                        width={80}
-                        height={80}
                         className="w-full h-full object-cover transition-all duration-500"
                       />
                       {/* Number Badge */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">
+                      <div className="absolute -top-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">
                         {testimonials[currentTestimonial].number}
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 min-h-[200px]">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 min-h-[180px] sm:min-h-[200px]">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg flex-shrink-0">
                         {testimonials[currentTestimonial].initials}
                       </div>
-                      <div className="flex-1">
-                        <div className="font-bold text-slate-800 text-lg">{testimonials[currentTestimonial].name}</div>
-                        <div className="text-sm text-gray-600 mb-2">{testimonials[currentTestimonial].company}</div>
-                        <div className="flex items-center mb-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-slate-800 text-base sm:text-lg">{testimonials[currentTestimonial].name}</div>
+                        <div className="text-xs sm:text-sm text-gray-600 mb-2">{testimonials[currentTestimonial].company}</div>
+                        <div className="flex items-center mb-2 sm:mb-3">
                           {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                            <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
                           ))}
                         </div>
-                        <p className="text-sm text-gray-700 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                           {testimonials[currentTestimonial].text}
                         </p>
                       </div>
@@ -291,15 +287,15 @@ export default function ModernDesignPage() {
                   {/* Navigation Arrows */}
                   <button
                     onClick={prevTestimonial}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                    className="absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
                   >
-                    <ChevronLeft className="w-4 h-4 text-gray-600" />
+                    <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                   </button>
                   <button
                     onClick={nextTestimonial}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                    className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
                   >
-                    <ChevronRight className="w-4 h-4 text-gray-600" />
+                    <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                   </button>
 
                   {/* Dots Indicator */}
@@ -321,7 +317,7 @@ export default function ModernDesignPage() {
         </section>
 
         {/* Awards Section */}
-        <section className=" px-4">
+        <section className="px-4 py-8 sm:py-12">
           <div className="max-w-7xl mx-auto">
             {/* <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Awards & Recognition</h2>
@@ -330,15 +326,14 @@ export default function ModernDesignPage() {
               </p>
             </div> */}
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {/* Image 1 */}
               <div className="relative group">
                 <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
-                  <Image
+                  <img
                     src="/award1.webp"
                     alt="Award 1"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
@@ -346,11 +341,10 @@ export default function ModernDesignPage() {
               {/* Image 2 */}
               <div className="relative group">
                 <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
-                  <Image
+                  <img
                     src="/award2.webp"
                     alt="Award 2"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
@@ -358,11 +352,10 @@ export default function ModernDesignPage() {
               {/* Image 3 */}
               <div className="relative group">
                 <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
-                  <Image
+                  <img
                     src="/award3.webp"
                     alt="Award 3"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
@@ -370,11 +363,10 @@ export default function ModernDesignPage() {
               {/* Image 4 */}
               <div className="relative group">
                 <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
-                  <Image
+                  <img
                     src="/award4.webp"
                     alt="Award 4"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>

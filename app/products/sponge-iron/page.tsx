@@ -1,7 +1,6 @@
 import { Package, Factory, CheckCircle, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function SpongeIronPage() {
   return (
@@ -9,13 +8,10 @@ export default function SpongeIronPage() {
       {/* Hero Section */}
       <section className="relative">
         <div className="relative w-full">
-          <Image
+          <img
             src="/Sponge/sp.jpg"
             alt="Sponge Iron"
-            width={1920}
-            height={280}
             className="w-full h-90 object-cover"
-            priority
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -56,11 +52,11 @@ export default function SpongeIronPage() {
             </div>
             
             <div className="flex items-center justify-center">
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-md relative aspect-square">
                 <img
                   src="/sponge-iron-pellets-macro.jpg"
                   alt="Sponge Iron Pellets"
-                  className="w-full h-auto object-contain rounded-lg shadow-lg"
+                  className="w-full h-full object-contain rounded-lg shadow-lg"
                 />
               </div>
             </div>

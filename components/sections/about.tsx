@@ -1,3 +1,4 @@
+
 export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="border-t bg-card">
@@ -6,8 +7,7 @@ export function About() {
           <img
             src="/workers-inspecting-steel-rebar-bundles.jpg"
             alt="Engineers inspecting TMT bar bundles"
-            className="h-full w-full object-cover"
-            loading="lazy"
+            className="w-full h-full object-cover"
           />
         </div>
         <div>
