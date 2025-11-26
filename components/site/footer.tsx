@@ -1,6 +1,11 @@
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowRight } from "lucide-react"
 
+const footerLinkClasses =
+  "text-sm text-gray-700 hover:text-orange-500 font-medium transition-colors"
+const contactInfoLinkClasses =
+  "text-sm text-gray-700 font-semibold hover:text-orange-500 transition-colors"
+
 export function Footer() {
   return (
     <footer className="mt-16 relative overflow-hidden">
@@ -100,11 +105,11 @@ export function Footer() {
             <div>
               <h3 className="text-sm font-bold text-gray-900 mb-4">Company</h3>
               <ul className="space-y-2">
-                <li><Link href="/about/overview" className="text-sm text-gray-700 hover:text-gray-900">Overview</Link></li>
-                <li><Link href="/about/at-a-glance" className="text-sm text-gray-700 hover:text-gray-900">At a Glance</Link></li>
-                <li><Link href="/about/chairman-message" className="text-sm text-gray-700 hover:text-gray-900">Chairman message</Link></li>
-                <li><Link href="/about/board-of-directors" className="text-sm text-gray-700 hover:text-gray-900">Boards of Directors</Link></li>
-                <li><Link href="/about/awards" className="text-sm text-gray-700 hover:text-gray-900">Awards & Acknowledgement</Link></li>
+                <li><Link href="/about/overview" className={footerLinkClasses}>Overview</Link></li>
+                <li><Link href="/about/at-a-glance" className={footerLinkClasses}>At a Glance</Link></li>
+                <li><Link href="/about/chairman-message" className={footerLinkClasses}>Chairman message</Link></li>
+                <li><Link href="/about/board-of-directors" className={footerLinkClasses}>Boards of Directors</Link></li>
+                <li><Link href="/about/awards" className={footerLinkClasses}>Awards & Acknowledgement</Link></li>
               </ul>
             </div>
 
@@ -112,11 +117,11 @@ export function Footer() {
             <div>
               <h3 className="text-sm font-bold text-gray-900 mb-4">Important Link</h3>
               <ul className="space-y-2">
-                <li><Link href="/technology" className="text-sm text-gray-700 hover:text-gray-900">Technology</Link></li>
-                <li><Link href="/products/tmt-bars" className="text-sm text-gray-700 hover:text-gray-900">Tmt Bar's</Link></li>
-                <li><Link href="/products/pig-iron" className="text-sm text-gray-700 hover:text-gray-900">Pig Iron</Link></li>
-                <li><Link href="/products/sponge-iron" className="text-sm text-gray-700 hover:text-gray-900">Sponge Iron</Link></li>
-                <li><Link href="/products/fibre-cement-sheets" className="text-sm text-gray-700 hover:text-gray-900">Fibre Cement Sheets</Link></li>
+                <li><Link href="/technology" className={footerLinkClasses}>Technology</Link></li>
+                <li><Link href="/products/tmt-bars" className={footerLinkClasses}>Tmt Bar's</Link></li>
+                <li><Link href="/products/pig-iron" className={footerLinkClasses}>Pig Iron</Link></li>
+                <li><Link href="/products/sponge-iron" className={footerLinkClasses}>Sponge Iron</Link></li>
+                <li><Link href="/products/fibre-cement-sheets" className={footerLinkClasses}>Fibre Cement Sheets</Link></li>
               </ul>
             </div>
 
@@ -124,11 +129,11 @@ export function Footer() {
             <div>
               <h3 className="text-sm font-bold text-gray-900 mb-4">Quick Link</h3>
               <ul className="space-y-2">
-                <li><Link href="/quality-assurance" className="text-sm text-gray-700 hover:text-gray-900">Quality Assurance</Link></li>
-                <li><Link href="/gallery" className="text-sm text-gray-700 hover:text-gray-900">Media & Gallery</Link></li>
-                <li><Link href="/voice-of-balmukund" className="text-sm text-gray-700 hover:text-gray-900">Voice of Balmukund</Link></li>
-                <li><Link href="/careers" className="text-sm text-gray-700 hover:text-gray-900">Careers</Link></li>
-                <li><Link href="/contact" className="text-sm text-gray-700 hover:text-gray-900">Contact Us</Link></li>
+                <li><Link href="/quality-assurance" className={footerLinkClasses}>Quality Assurance</Link></li>
+                <li><Link href="/gallery" className={footerLinkClasses}>Media & Gallery</Link></li>
+                <li><Link href="/voice-of-balmukund" className={footerLinkClasses}>Voice of Balmukund</Link></li>
+                <li><Link href="/careers" className={footerLinkClasses}>Careers</Link></li>
+                <li><Link href="/contact" className={footerLinkClasses}>Contact Us</Link></li>
               </ul>
             </div>
 
@@ -138,8 +143,18 @@ export function Footer() {
               <div className="text-sm text-gray-700 space-y-1">
                 <p>18- R.N.Mukherjee, Road 1st Floor,</p>
                 <p>Kolkata, 700 001</p>
-                <p>Tel. 03322486304</p>
-                <p>Mail. balmukundsponge@gmail.com</p>
+                <p>
+                  Tel.&nbsp;
+                  <a href="tel:03322486304" className={contactInfoLinkClasses}>
+                    033 2248 6304
+                  </a>
+                </p>
+                <p>
+                  Mail.&nbsp;
+                  <a href="mailto:balmukundsponge@gmail.com" className={contactInfoLinkClasses}>
+                    balmukundsponge@gmail.com
+                  </a>
+                </p>
               </div>
         </div>
 
@@ -147,10 +162,20 @@ export function Footer() {
         <div>
               <h3 className="text-sm font-bold text-gray-900 mb-4">Branch Address</h3>
               <div className="text-sm text-gray-700 space-y-1">
-                <p>Luv kush tower 702,</p>
-                <p>exhibition road Patna, 800001</p>
-                <p>Tel. 06122322488</p>
-                <p>Tel. +91 8709475535</p>
+                <p>Luv Kush Tower 702,</p>
+                <p>Exhibition Road Patna, 800001</p>
+                <p>
+                  Tel.&nbsp;
+                  <a href="tel:06122322488" className={contactInfoLinkClasses}>
+                    0612 232 2488
+                  </a>
+                </p>
+                <p>
+                  Tel.&nbsp;
+                  <a href="tel:+918709475535" className={contactInfoLinkClasses}>
+                    +91 87094 75535
+                  </a>
+                </p>
               </div>
             </div>
           </div>
@@ -183,24 +208,27 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Left Side - Copyright */}
             <div className="text-white text-sm mb-4 md:mb-0">
-              © 2024 Balmukund Super Steel by Brand Radiator · Privacy · Terms of Use · Site Map
+              © 2025 Balmukund Super Steel ·{" "}
+              <Link href="/privacy" className="hover:underline hover:text-orange-500 transition-colors">Privacy</Link> ·{" "}
+              <Link href="/terms" className="hover:underline hover:text-orange-500 transition-colors">Terms of Use</Link> ·{" "}
+              <span className="hover:text-orange-500 transition-colors cursor-pointer">Site Map</span>
             </div>
 
             {/* Right Side - Social Media Icons */}
             <div className="flex items-center space-x-4">
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
+              <Link href="https://www.linkedin.com/company/balmukund-super/" className="text-white hover:text-gray-300 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </Link>
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
+              <Link href="https://www.facebook.com/people/Balmukund-Super-Steel/61557173077553/" className="text-white hover:text-gray-300 transition-colors">
                 <Facebook className="w-5 h-5" />
               </Link>
               <Link href="#" className="text-white hover:text-gray-300 transition-colors">
                 <Twitter className="w-5 h-5" />
               </Link>
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
+              <Link href="https://www.instagram.com/balmukund_super/" className="text-white hover:text-gray-300 transition-colors">
                 <Instagram className="w-5 h-5" />
             </Link>
-              <Link href="#" className="text-white hover:text-gray-300 transition-colors">
+              <Link href="https://www.youtube.com/@balmukund_super" className="text-white hover:text-gray-300 transition-colors">
                 <Youtube className="w-5 h-5" />
             </Link>
             </div>

@@ -114,7 +114,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-bold mb-2">Branch Office</h3>
                     <p className="text-foreground/80">
-                    Luv kush tower 702, exhibition road Patna 800001
+                      Luv Kush Tower
+                      <br />
+                      Exhibition Rd, Salimpur Ahra,
+                      <br />
+                      Golambar, Patna, Bihar 800001
                     </p>
                   </div>
                 </div>
@@ -201,7 +205,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject *
+                    Company
                   </label>
                   <input
                     type="text"
@@ -209,7 +213,7 @@ export default function ContactPage() {
                     name="subject"
                     required
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="How can we help you?"
+                    placeholder="Company"
                   />
                 </div>
 
@@ -253,7 +257,7 @@ export default function ContactPage() {
       <section className="w-full">
         <div className="w-full h-[500px] md:h-[600px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.1234567890123!2d88.3543!3d22.5726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277b3c0b0b0b0%3A0x1234567890abcdef!2s18%2C%20R.N.%20Mukherjee%20Rd%2C%20Kolkata%2C%20West%20Bengal%20700001!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3139616109127!2d85.13648057521631!3d25.611445583691616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed587c8c40e371%3A0x45e15b8ff103b57f!2sLuv%20Kush%20Tower%2C%20Exhibition%20Rd%2C%20Salimpur%20Ahra%2C%20Golambar%2C%20Patna%2C%20Bihar%20800001!5e0!3m2!1sen!2sin!4v1732850400000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -261,7 +265,7 @@ export default function ContactPage() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="w-full h-full"
-            title="Balmukund Sponge - Head Office Location"
+            title="Branch Office - Luv Kush Tower, Patna"
           ></iframe>
         </div>
       </section>

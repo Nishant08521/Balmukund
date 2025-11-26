@@ -8,6 +8,28 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
+// Helper function to extract video ID from YouTube URL
+function getYouTubeVideoId(url: string): string {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : '';
+}
+
+// Helper function to convert YouTube URL to embed URL
+function getYouTubeEmbedUrl(url: string): string {
+  const videoId = getYouTubeVideoId(url);
+  // Extract time parameter if present
+  const timeMatch = url.match(/[?&]t=(\d+)/);
+  const timeParam = timeMatch ? `&start=${timeMatch[1]}` : '';
+  return `https://www.youtube.com/embed/${videoId}${timeParam}`;
+}
+
+// Helper function to get YouTube thumbnail URL
+function getYouTubeThumbnail(url: string): string {
+  const videoId = getYouTubeVideoId(url);
+  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+}
+
 export default function GalleryPage() {
 
   const galleryItems = [
@@ -28,14 +50,14 @@ export default function GalleryPage() {
     }
   ]
 
-  // Sample video data - replace with actual video URLs
+  // Video data with YouTube URLs
   const videos = [
-    { id: 1, title: "Video 1", thumbnail: "/steel-i-beams-warehouse.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-    { id: 2, title: "Video 2", thumbnail: "/closeup-of-tmt-steel-bars-bundled.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-    { id: 3, title: "Video 3", thumbnail: "/sponge-iron-pellets-macro.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-    { id: 4, title: "Video 4", thumbnail: "/pig-iron-ingots-stacked.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-    { id: 5, title: "Video 5", thumbnail: "/workers-inspecting-steel-rebar-bundles.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-    { id: 6, title: "Video 6", thumbnail: "/hot-rolled-steel-mill-with-glowing-billets.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: 1, title: "Video 1", youtubeUrl: "https://www.youtube.com/watch?v=dE1MKeMv2OA&t=1s" },
+    { id: 2, title: "Video 2", youtubeUrl: "https://www.youtube.com/watch?v=dE1MKeMv2OA&t=1s" },
+    { id: 3, title: "Video 3", youtubeUrl: "https://www.youtube.com/watch?v=dE1MKeMv2OA&t=1s" },
+    { id: 4, title: "Video 4", youtubeUrl: "https://www.youtube.com/watch?v=dE1MKeMv2OA&t=1s" },
+    { id: 5, title: "Video 5", youtubeUrl: "https://www.youtube.com/watch?v=dE1MKeMv2OA&t=1s" },
+    { id: 6, title: "Video 6", youtubeUrl: "https://www.youtube.com/watch?v=dE1MKeMv2OA&t=1s" },
   ]
 
   return (
@@ -122,45 +144,58 @@ export default function GalleryPage() {
               </p>
               
               {/* View More Button */}
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-white rounded-lg font-semibold hover:bg-foreground/90 transition-colors">
+              <Link
+                href="/video-gallery"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-white rounded-lg font-semibold hover:bg-foreground/90 transition-colors"
+              >
                 View More
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
             </div>
 
             {/* Video Grid - 6 Videos */}
             <div className="grid grid-cols-3 gap-3 mt-8">
-              {videos.map((video) => (
-                <Dialog key={video.id}>
-                  <DialogTrigger asChild>
-                    <button
-                      className="group relative aspect-video overflow-hidden rounded-lg border-2 border-orange-400 hover:border-white transition-all cursor-pointer"
-                    >
-                      <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Play className="w-6 h-6 text-orange-500 ml-1" fill="currentColor" />
+              {videos.map((video) => {
+                const embedUrl = getYouTubeEmbedUrl(video.youtubeUrl);
+                const thumbnailUrl = getYouTubeThumbnail(video.youtubeUrl);
+                
+                return (
+                  <Dialog key={video.id}>
+                    <DialogTrigger asChild>
+                      <button
+                        className="group relative aspect-video overflow-hidden rounded-lg border-2 border-orange-400 hover:border-white transition-all cursor-pointer"
+                      >
+                        <img
+                          src={thumbnailUrl}
+                          alt={video.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          onError={(e) => {
+                            // Fallback to a lower quality thumbnail if maxresdefault fails
+                            const videoId = getYouTubeVideoId(video.youtubeUrl);
+                            (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <Play className="w-6 h-6 text-orange-500 ml-1" fill="currentColor" />
+                          </div>
                         </div>
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl p-0 bg-black border-0">
+                      <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
+                        <iframe
+                          src={embedUrl}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          title={video.title}
+                        ></iframe>
                       </div>
-                    </button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl p-0 bg-black border-0">
-                    <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
-                      <iframe
-                        src={video.videoUrl}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title={video.title}
-                      ></iframe>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              ))}
+                    </DialogContent>
+                  </Dialog>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function SpongeIronPage() {
           <img
             src="/sp.jpg"
             alt="Sponge Iron"
-            className="w-full h-90 object-cover"
+            className="w-full h-110 object-cover"
           />
         </div>
         <div className="absolute inset-0 flex items-center">
@@ -32,8 +32,9 @@ export default function SpongeIronPage() {
             </div>
             
             <p className="text-lg text-foreground/80 leading-relaxed">
-              Sponge iron is produced by reducing iron ore (in the form of lumps, pellets or fines) with a reducing gas produced from natural gas or coal. The reduction takes place in a rotary kiln (which is inclined and rotates at a predetermined range of speeds) at a temperature of around 1000°C. The quality of iron ore from our own mines is tested by expert technicians. After testing, the iron ore is melted in the kiln. The sponge iron is re-checked for quality parameters and then re-melted to produce Ingots or Billets. India is the world's largest producer of sponge iron, most of which is produced primarily through the coal-based method. The growth in the sponge iron industry can be attributed largely to the popularity of the secondary steelmaking route. The crude steel production in India has grown from 26 mMT (37%) in 1999-2k to 54 mMT (59%) in 2007-08. This growth is due to lower investment costs of EAF compared to blast furnace-oxygen converter routes and greater product mix flexibility. BALMUKUND produces high-grade sponge iron with an annual manufacturing capacity of 390,000 tonnes from its 3 kilns. Our production process is unique and superior to competitors like Tata Sponge.
+            To produce best TMT best quality iron ore is required. Most of the companies outs ource it,but we get it from our own mines so that quality is up to the mark.Best iron ore contains all required ingredients.Every lot of iron ore is checked by expert technicians.Tested and checked iron ore is melted in big furnaces at very high temperature to manufacture sponge iron. Sponge iron is agoin checked for standard quality parameters in modernize laboratories.This sponge iron is then agoin melted at high temperature to get Ingots or Billets. India is the world's largest producer of sponge iron, most of which is produced primarily through the coal based method of production. Growth in the sponge iron production can be attributed largely to the popularity of secondary steelmaking route, which has shown a phenomenal growth in India. The proportion of crude steel produced by the secondary steel sector rose from 26 mMT(37%) in 1999-2k to 54 mMT(59%) in 2007-08. This has been mainly due to the lower investment cost of the EAF as compared with the integrated blast furnace--oxygen converter route and also because of its greater flexibility of product mix.
             </p>
+            <p>BALMUKUND Sponge produces high-grade sponge iron that is consistent in quality. The Company has an annual manufacturing capacity of 390,000 tonnes of sponge iron from its 3 kilns. The production process followed at Tata Sponge makes it unique and superior than its competitors</p>
           </div>
 
           {/* Properties Section with Image */}

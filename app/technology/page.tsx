@@ -30,7 +30,7 @@ export default function TechnologyPage() {
 
           {/* Table + Illustration */}
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4 mt-30">
+            <div className="space-y-4 mt-10">
               <h3 className="text-xl md:text-2xl font-semibold text-foreground">Properties :-</h3>
               <div className="overflow-x-auto ">
                   <table className="w-full border-collapse">

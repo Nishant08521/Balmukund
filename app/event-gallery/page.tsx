@@ -13,37 +13,37 @@ export default function EventGalleryPage() {
 
   // Sample event images - replace with actual event images
   const eventImages = [
-    { id: 1, src: "/steel-i-beams-warehouse.jpg", title: "Event 1", description: "Grand opening ceremony" },
-    { id: 2, src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "Event 2", description: "Product launch event" },
-    { id: 3, src: "/sponge-iron-pellets-macro.jpg", title: "Event 3", description: "Annual dealer meet" },
-    { id: 4, src: "/pig-iron-ingots-stacked.jpg", title: "Event 4", description: "International tour" },
-    { id: 5, src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Event 5", description: "Factory visit" },
-    { id: 6, src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Event 6", description: "Award ceremony" },
-    { id: 7, src: "/steel-i-beams-warehouse.jpg", title: "Event 7", description: "Customer appreciation" },
-    { id: 8, src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "Event 8", description: "Partnership event" },
-    { id: 9, src: "/sponge-iron-pellets-macro.jpg", title: "Event 9", description: "Trade show participation" },
-    { id: 10, src: "/pig-iron-ingots-stacked.jpg", title: "Event 10", description: "Community event" },
-    { id: 11, src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Event 11", description: "Training session" },
-    { id: 12, src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Event 12", description: "Celebration event" },
+    { id: 1, src: "/event2.jpg", title: "Event 1", description: "Grand opening ceremony" },
+    { id: 2, src: "/event3.jpg", title: "Event 2", description: "Product launch event" },
+    { id: 3, src: "/event4.jpg", title: "Event 3", description: "Annual dealer meet" },
+    { id: 4, src: "/event5.jpg", title: "Event 4", description: "International tour" },
+    { id: 5, src: "/event6.jpg", title: "Event 5", description: "Factory visit" },
+    { id: 6, src: "/event7.jpg", title: "Event 6", description: "Award ceremony" },
+    { id: 7, src: "/event8.jpg", title: "Event 7", description: "Customer appreciation" },
+    { id: 8, src: "/event9.jpg", title: "Event 8", description: "Partnership event" },
+    { id: 9, src: "/event10.jpg", title: "Event 9", description: "Trade show participation" },
+    { id: 10, src: "/event11.jpg", title: "Event 10", description: "Community event" },
+    { id: 11, src: "/event2.jpg", title: "Event 11", description: "Training session" },
+    { id: 12, src: "/event6.jpg", title: "Event 12", description: "Celebration event" },
   ]
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-7xl px-4">
-          <Link 
-            href="/gallery"
-            className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Gallery</span>
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Event Gallery</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Explore our memorable events, celebrations, and special moments
-          </p>
+    
+
+      <section className="relative">
+   
+        <div className="relative w-full">
+          <img
+            src="/event1.jpg"
+            alt="Technology"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="relative mx-auto max-w-6xl px-4 w-full">
+          </div>
         </div>
       </section>
 

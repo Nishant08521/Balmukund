@@ -84,7 +84,7 @@ export default function VoiceOfBalmukundPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/overview.jpg"
+            src="/voice.jpg"
             alt="Voice of Balmukund"
             className="w-full h-auto object-cover"
           />

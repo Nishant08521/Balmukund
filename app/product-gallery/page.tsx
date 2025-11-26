@@ -13,39 +13,50 @@ export default function ProductGalleryPage() {
 
   // Sample product images - replace with actual product images
   const productImages = [
-    { id: 1, src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "TMT Steel Bars", description: "High-strength reinforcement bars" },
-    { id: 2, src: "/sponge-iron-pellets-macro.jpg", title: "Sponge Iron Pellets", description: "Premium quality sponge iron" },
-    { id: 3, src: "/pig-iron-ingots-stacked.jpg", title: "Pig Iron Ingots", description: "High-grade pig iron products" },
-    { id: 4, src: "/steel-i-beams-warehouse.jpg", title: "Steel I-Beams", description: "Structural steel beams" },
-    { id: 5, src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Hot Rolled Steel", description: "Hot rolled steel products" },
-    { id: 6, src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Steel Rebar", description: "Quality inspected rebar bundles" },
-    { id: 7, src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "TMT Bars Bundle", description: "Ready for shipment" },
-    { id: 8, src: "/sponge-iron-pellets-macro.jpg", title: "Sponge Iron Quality", description: "Premium grade material" },
-    { id: 9, src: "/pig-iron-ingots-stacked.jpg", title: "Pig Iron Stack", description: "Organized storage" },
-    { id: 10, src: "/steel-i-beams-warehouse.jpg", title: "Warehouse Storage", description: "Well-maintained facility" },
-    { id: 11, src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Steel Production", description: "Manufacturing process" },
-    { id: 12, src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 1, src: "/p2.webp", title: "TMT Steel Bars", description: "High-strength reinforcement bars" },
+    { id: 2, src: "/p3.webp", title: "Sponge Iron Pellets", description: "Premium quality sponge iron" },
+    { id: 3, src: "/p4.webp", title: "Pig Iron Ingots", description: "High-grade pig iron products" },
+    { id: 4, src: "/p5.webp", title: "Steel I-Beams", description: "Structural steel beams" },
+    { id: 5, src: "/p6.webp", title: "Hot Rolled Steel", description: "Hot rolled steel products" },
+    { id: 6, src: "/p7.webp", title: "Steel Rebar", description: "Quality inspected rebar bundles" },
+    { id: 7, src: "/p8.webp", title: "TMT Bars Bundle", description: "Ready for shipment" },
+    { id: 8, src: "/p9.webp", title: "Sponge Iron Quality", description: "Premium grade material" },
+    { id: 9, src: "/p10.webp", title: "Pig Iron Stack", description: "Organized storage" },
+    { id: 10, src: "/p11.webp", title: "Warehouse Storage", description: "Well-maintained facility" },
+    { id: 11, src: "/p12.webp", title: "Steel Production", description: "Manufacturing process" },
+    { id: 12, src: "/p13.webp", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 13, src: "/p14.webp", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 14, src: "/p15.webp", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 15, src: "/p16.webp", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 16, src: "/p17.webp", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 17, src: "/p18.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 18, src: "/p19.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 19, src: "/p20.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 20, src: "/p21.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 21, src: "/p22.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 22, src: "/p23.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    { id: 23, src: "/p24.jpg", title: "Quality Control", description: "Rigorous inspection" },
+    // { id: 12, src: "/", title: "Quality Control", description: "Rigorous inspection" },
   ]
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/closeup-of-tmt-steel-bars-bundled.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-7xl px-4">
-          <Link 
-            href="/gallery"
-            className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Gallery</span>
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Product Gallery</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Explore our wide range of high-quality steel products and manufacturing excellence
-          </p>
-        </div>
-      </section>
+      <section className="relative">
+   
+   <div className="relative w-full">
+     <img
+       src="/p1.jpg"
+       alt="Technology"
+       className="w-full h-auto object-cover"
+     />
+   </div>
+   <div className="absolute inset-0 flex items-center">
+     <div className="relative mx-auto max-w-6xl px-4 w-full">
+     </div>
+   </div>
+ </section>
+
 
       {/* Gallery Grid */}
       <section className="py-16 bg-background">

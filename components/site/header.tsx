@@ -6,9 +6,15 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ContactBar } from "@/components/site/contact-bar"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 
-const NAV_ITEMS = [
+type NavMenuItem = {
+  label: string
+  href?: string
+  submenu?: NavMenuItem[]
+}
+
+const NAV_ITEMS: NavMenuItem[] = [
   { href: "/", label: "Home" },
   { 
     label: "About Us", 
@@ -23,6 +29,40 @@ const NAV_ITEMS = [
   { href: "/quality-assurance", label: "Quality Assurance" },
   { href: "/balmukund-superstar", label: "Balmukund SuperStar" },
   { 
+    label: "Compliance (Sponge Iron) ", 
+    submenu: [
+      { 
+        label: "EC",
+        submenu: [
+          { href: "https://balmukund.com/wp-content/uploads/2024/07/ModernisationExpansion-of-SMS-RM-.pdf", label: "MODRNISATION AND EXPANSION OF SMS & RM" },
+          { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-SMS-And-IOB.pdf", label: "SMS IOB" },
+          { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-MBF-1.pdf", label: "MBF" },
+          
+        ]
+      },
+      { 
+        label: "EC AND COMPLIANCE",
+        submenu: [
+          { 
+            label: "MBF",
+            submenu: [
+              { href: "https://balmukund.com/wp-content/uploads/2025/06/BSIPLMBFECCompl.March25.pdf", label: "March" },
+              { href: "/compliance/mbf/september", label: "SEPETMEBER" }
+            ]
+          },
+          { 
+            label: "SMS AND IOB",
+            submenu: [
+              { href: "https://balmukund.com/wp-content/uploads/2025/06/BSIPL-EC-Comp.-Exp.-March25-compressed.pdf", label: "March" },
+              { href: "/compliance/mbf/september", label: "SEPETMEBER" }
+            ]
+          }
+        ]
+      },
+      { href: "https://balmukund.com/wp-content/uploads/2025/06/ES-BSIPL-MEGA-DIV.-FY2024-25.pdf", label: "ENVIROMENT STATEMENT" },
+    ]
+  },
+  { 
     label: "Products", 
     submenu: [
       { href: "/products/sponge-iron", label: "Sponge Iron" },
@@ -31,7 +71,7 @@ const NAV_ITEMS = [
       { href: "/products/fibre-cement-sheets", label: "Fibre Cement Sheets" },
     ]
   },
-  { href: "/compliance", label: "Compliance" },
+ 
   { href: "/technology", label: "Technology" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact Us" },
@@ -41,6 +81,8 @@ export function Header() {
   const pathname = usePathname() || "/"
   const [open, setOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [openNestedDropdown, setOpenNestedDropdown] = useState<string | null>(null)
+  const [openThirdLevel, setOpenThirdLevel] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -78,7 +120,7 @@ export function Header() {
         <div className="mx-auto max-w-6xl px-4 py-[1px] flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3" aria-label="Balmukund Super Steel - Home">
             <img
-              src="/logo.png"
+              src="/imgi_1.gif"
               alt="Balmukund Super Steel logo"
               className="h-22 w-22"
             />
@@ -132,42 +174,167 @@ export function Header() {
                       <button
                         className={cn(
                           "inline-flex items-center gap-1 text-sm font-medium transition-colors h-12",
-                          "text-foreground/80 hover:text-foreground"
+                          openDropdown === item.label ? "text-orange-500" : "text-foreground/80 hover:text-orange-500"
                         )}
                       >
                         {item.label}
                         <ChevronDown className="size-4" />
                       </button>
-                      <div className={cn(
-                        "absolute top-full left-0 mt-0 w-56 bg-background border rounded-md shadow-lg py-2",
+                      <div 
+                        className={cn(
+                          "absolute top-full left-0 mt-0 w-56 bg-background border rounded-md shadow-lg py-2 z-50",
                         "transition-all duration-200",
                         openDropdown === item.label ? "opacity-100 visible" : "opacity-0 invisible"
-                      )}>
-                        {item.submenu.map((subitem) => (
-                          <Link
-                            key={subitem.href}
-                            href={subitem.href}
-                            className={cn(
-                              "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
-                              isActive(subitem.href) ? "text-accent font-medium" : "text-foreground/80"
-                            )}
-                          >
-                            {subitem.label}
-                          </Link>
-                        ))}
+                        )}
+                        onMouseEnter={() => setOpenDropdown(item.label)}
+                        onMouseLeave={() => {
+                          setOpenDropdown(null)
+                          setOpenNestedDropdown(null)
+                          setOpenThirdLevel(null)
+                        }}
+                      >
+                        {item.submenu.map((subitem, subIndex) => {
+                          const hasNestedMenu = subitem.submenu && subitem.submenu.length > 0
+                          const itemKey = `${item.label}-${subIndex}`
+                          
+                          return (
+                            <div key={itemKey} className="relative">
+                              {hasNestedMenu ? (
+                                <div
+                                  className="relative"
+                                  onMouseEnter={() => setOpenNestedDropdown(itemKey)}
+                                  onMouseLeave={() => {
+                                    setOpenNestedDropdown(null)
+                                    setOpenThirdLevel(null)
+                                  }}
+                                >
+                                  <div className={cn(
+                                    "flex items-center justify-between px-4 py-2 text-sm hover:bg-secondary transition-colors cursor-pointer group",
+                                    openNestedDropdown === itemKey && "bg-secondary"
+                                  )}>
+                                    <span className={cn(
+                                      openNestedDropdown === itemKey ? "text-orange-500 font-medium" : "text-foreground/80 group-hover:text-orange-500"
+                                    )}>
+                                      {subitem.label}
+                                    </span>
+                                    <ChevronRight className="size-4" />
+                                  </div>
+                                  {subitem.submenu && (
+                                    <div className={cn(
+                                      "absolute left-full top-0 ml-1 w-56 bg-background border rounded-md shadow-lg py-2 z-50",
+                                      "transition-all duration-200",
+                                      openNestedDropdown === itemKey ? "opacity-100 visible" : "opacity-0 invisible"
+                                    )}>
+                                      {subitem.submenu.map((nestedItem, nestedIndex) => {
+                                        const hasThirdLevel = nestedItem.submenu && nestedItem.submenu.length > 0
+                                        const nestedKey = `${itemKey}-${nestedIndex}`
+                                        
+                                        return (
+                                          <div key={nestedKey} className="relative">
+                                            {hasThirdLevel ? (
+                                              <div
+                                                className="relative"
+                                                onMouseEnter={() => setOpenThirdLevel(nestedKey)}
+                                                onMouseLeave={() => setOpenThirdLevel(null)}
+                                              >
+                                                <div className={cn(
+                                                  "flex items-center justify-between px-4 py-2 text-sm hover:bg-secondary transition-colors cursor-pointer group",
+                                                  openThirdLevel === nestedKey && "bg-secondary"
+                                                )}>
+                                                  <span className={cn(
+                                                    openThirdLevel === nestedKey ? "text-orange-500 font-medium" : "text-foreground/80 group-hover:text-orange-500"
+                                                  )}>
+                                                    {nestedItem.label}
+                                                  </span>
+                                                  <ChevronRight className="size-4" />
+                                                </div>
+                                                {nestedItem.submenu && (
+                                                  <div className={cn(
+                                                    "absolute left-full top-0 ml-1 w-56 bg-background border rounded-md shadow-lg py-2 z-50",
+                                                    "transition-all duration-200",
+                                                    openThirdLevel === nestedKey ? "opacity-100 visible" : "opacity-0 invisible"
+                                                  )}>
+                                                    {nestedItem.submenu.map((thirdItem) => (
+                                                      thirdItem.href ? (
+                                                        <Link
+                                                          key={thirdItem.href}
+                                                          href={thirdItem.href}
+                                                          className={cn(
+                                                            "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
+                                                            isActive(thirdItem.href) ? "text-orange-500 font-medium" : "text-foreground/80 hover:text-orange-500"
+                                                          )}
+                                                        >
+                                                          {thirdItem.label}
+                                                        </Link>
+                                                      ) : (
+                                                        <div
+                                                          key={thirdItem.label}
+                                                          className="block px-4 py-2 text-sm text-foreground/80"
+                                                        >
+                                                          {thirdItem.label}
+                                                        </div>
+                                                      )
+                                                    ))}
+                                                  </div>
+                                                )}
+                                              </div>
+                                            ) : (
+                                              nestedItem.href ? (
+                                                <Link
+                                                  href={nestedItem.href}
+                                                  className={cn(
+                                                    "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
+                                                    isActive(nestedItem.href) ? "text-orange-500 font-medium" : "text-foreground/80 hover:text-orange-500"
+                                                  )}
+                                                >
+                                                  {nestedItem.label}
+                                                </Link>
+                                              ) : (
+                                                <div className="block px-4 py-2 text-sm text-foreground/80">
+                                                  {nestedItem.label}
+                                                </div>
+                                              )
+                                            )}
+                                          </div>
+                                        )
+                                      })}
+                                    </div>
+                                  )}
+                                </div>
+                              ) : (
+                                subitem.href ? (
+                                  <Link
+                                    href={subitem.href}
+                                    className={cn(
+                                      "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
+                                      isActive(subitem.href) ? "text-orange-500 font-medium" : "text-foreground/80 hover:text-orange-500"
+                                    )}
+                                  >
+                                    {subitem.label}
+                                  </Link>
+                                ) : (
+                                  <div className="block px-4 py-2 text-sm text-foreground/80">
+                                    {subitem.label}
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   )
                 }
                 
+                if (!item.href) return null
                 const active = isActive(item.href)
                 return (
                   <Link
                     key={item.label}
-                    href={item.href!}
+                    href={item.href}
                     className={cn(
                       "relative text-sm font-medium transition-colors",
-                      active ? "text-accent" : "text-foreground/80 hover:text-foreground",
+                      active ? "text-orange-500" : "text-foreground/80 hover:text-orange-500",
                     )}
                   >
                     {item.label}
@@ -187,24 +354,81 @@ export function Header() {
                   <div key={item.label} className="flex flex-col gap-2">
                     <span className="font-medium text-foreground/80">{item.label}</span>
                     <div className="flex flex-col gap-2 pl-4">
-                      {item.submenu.map((subitem) => (
-                        <Link
-                          key={subitem.href}
-                          href={subitem.href}
-                          onClick={() => setOpen(false)}
-                          className={cn("py-1 text-sm", isActive(subitem.href) ? "text-accent" : "text-foreground/70")}
-                        >
-                          {subitem.label}
-                        </Link>
-                      ))}
+                      {item.submenu.map((subitem, subIndex) => {
+                        if (subitem.submenu) {
+                          return (
+                            <div key={`${item.label}-${subIndex}`} className="flex flex-col gap-2">
+                              <span className="font-medium text-foreground/70 text-sm">{subitem.label}</span>
+                              <div className="flex flex-col gap-2 pl-4">
+                                {subitem.submenu.map((nestedItem, nestedIndex) => {
+                                  if (nestedItem.submenu) {
+                                    return (
+                                      <div key={`${item.label}-${subIndex}-${nestedIndex}`} className="flex flex-col gap-2">
+                                        <span className="font-medium text-foreground/60 text-xs">{nestedItem.label}</span>
+                                        <div className="flex flex-col gap-2 pl-4">
+                                          {nestedItem.submenu.map((thirdItem) => (
+                                            thirdItem.href ? (
+                                              <Link
+                                                key={thirdItem.href}
+                                                href={thirdItem.href}
+                                                onClick={() => setOpen(false)}
+                                                className={cn("py-1 text-xs", isActive(thirdItem.href) ? "text-accent" : "text-foreground/60")}
+                                              >
+                                                {thirdItem.label}
+                                              </Link>
+                                            ) : (
+                                              <span key={thirdItem.label} className="py-1 text-xs text-foreground/60">
+                                                {thirdItem.label}
+                                              </span>
+                                            )
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )
+                                  }
+                                  return nestedItem.href ? (
+                                    <Link
+                                      key={nestedItem.href}
+                                      href={nestedItem.href}
+                                      onClick={() => setOpen(false)}
+                                      className={cn("py-1 text-xs", isActive(nestedItem.href) ? "text-accent" : "text-foreground/60")}
+                                    >
+                                      {nestedItem.label}
+                                    </Link>
+                                  ) : (
+                                    <span key={`${item.label}-${subIndex}-${nestedIndex}`} className="py-1 text-xs text-foreground/60">
+                                      {nestedItem.label}
+                                    </span>
+                                  )
+                                })}
+                              </div>
+                            </div>
+                          )
+                        }
+                        return subitem.href ? (
+                          <Link
+                            key={subitem.href}
+                            href={subitem.href}
+                            onClick={() => setOpen(false)}
+                            className={cn("py-1 text-sm", isActive(subitem.href) ? "text-accent" : "text-foreground/70")}
+                          >
+                            {subitem.label}
+                          </Link>
+                        ) : (
+                          <span key={`${item.label}-${subIndex}`} className="py-1 text-sm text-foreground/70">
+                            {subitem.label}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
                 )
               }
+              if (!item.href) return null
               return (
                 <Link
                   key={item.label}
-                  href={item.href!}
+                  href={item.href}
                   onClick={() => setOpen(false)}
                   className={cn("py-1", isActive(item.href) ? "text-accent" : "text-foreground/80")}
                 >

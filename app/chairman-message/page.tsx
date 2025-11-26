@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function ChairmanMessagePage() {
   return (
-    <div className="min-h-screen bg-white pb-12 pt-50">
+    <div className="min-h-screen bg-white pb-12 pt-80">
       {/* Main Content Section */}
       <section className="py-8 sm:py-12 md:py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
@@ -22,10 +22,10 @@ export default function ChairmanMessagePage() {
             {/* Right Section - Text Content */}
             <div className="order-1 md:order-2 space-y-4 sm:space-y-6">
               <div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 sm:mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-3 sm:mb-4">
                   BALMUKUND SUPER STEEL
                 </h1>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-small text-black mb-4 sm:mb-6">
                   Chairman's Message
                 </h2>
               </div>
@@ -60,8 +60,11 @@ export default function ChairmanMessagePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
             {/* Left Section - Text Content */}
             <div className="space-y-4 sm:space-y-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black mb-3 sm:mb-4">
+                  BALMUKUND SUPER STEEL
+                </h1>
               <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 sm:mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-small text-black mb-3 sm:mb-4">
                   Director: Abhishek Kanodia
                 </h2>
               </div>

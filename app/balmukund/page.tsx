@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
+
 export default function BalmukundPage() {
   return (
     <section className="w-full bg-white py-8 sm:py-12 md:py-16 px-4">
@@ -9,8 +10,10 @@ export default function BalmukundPage() {
         <div className="w-full flex justify-center order-2 md:order-1">
           <div className="relative w-full max-w-md">
             <img
-              src="/quality.jpg"
+              src="/qualityproduct.webp"
               alt="Balmukund Quality"
+              width={600}
+              height={600}
               className="w-full h-auto object-contain rounded-md shadow-lg"
             />
           </div>
@@ -21,8 +24,9 @@ export default function BalmukundPage() {
           <p className="text-xs sm:text-sm uppercase text-gray-500 tracking-wide mb-2">
             BALMUKUND SUPER STEEL
           </p>
+          <h2 className="font-small text-2xl sm:text-3xl md:text-4xl text-gray-900">Balmukund</h2>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4">
-            Balmukund <span className="font-bold text-gray-900">Quality Assurance</span>
+            <span className="font-bold text-gray-900">Quality Assurance</span>
           </h2>
           <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
             BALMUKUND SUPER Steel has adopted the most acceptable quality systems right from 

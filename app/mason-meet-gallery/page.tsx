@@ -13,39 +13,38 @@ export default function MasonMeetGalleryPage() {
 
   // Sample mason meet images - replace with actual mason meet images
   const masonMeetImages = [
-    { id: 1, src: "/steel-i-beams-warehouse.jpg", title: "Mason Meet 2024", description: "Annual mason meet gathering" },
-    { id: 2, src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "Expert Session", description: "Technical knowledge sharing" },
-    { id: 3, src: "/sponge-iron-pellets-macro.jpg", title: "Networking Event", description: "Building connections" },
-    { id: 4, src: "/pig-iron-ingots-stacked.jpg", title: "Award Ceremony", description: "Recognizing excellence" },
-    { id: 5, src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Workshop Session", description: "Hands-on training" },
-    { id: 6, src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Group Photo", description: "Memorable moments" },
-    { id: 7, src: "/steel-i-beams-warehouse.jpg", title: "Mason Meet 2023", description: "Previous year gathering" },
-    { id: 8, src: "/closeup-of-tmt-steel-bars-bundled.jpg", title: "Product Demo", description: "Live demonstrations" },
-    { id: 9, src: "/sponge-iron-pellets-macro.jpg", title: "Panel Discussion", description: "Expert insights" },
-    { id: 10, src: "/pig-iron-ingots-stacked.jpg", title: "Cultural Event", description: "Entertainment program" },
-    { id: 11, src: "/hot-rolled-steel-mill-with-glowing-billets.jpg", title: "Site Visit", description: "Factory tour" },
-    { id: 12, src: "/workers-inspecting-steel-rebar-bundles.jpg", title: "Closing Ceremony", description: "Event conclusion" },
+    { id: 1, src: "/m2.jpg", title: "Mason Meet 2024", description: "Annual mason meet gathering" },
+    { id: 2, src: "/m3.jpg", title: "Expert Session", description: "Technical knowledge sharing" },
+    { id: 3, src: "/m4.jpg", title: "Networking Event", description: "Building connections" },
+    { id: 4, src: "/m5.jpg", title: "Award Ceremony", description: "Recognizing excellence" },
+    { id: 5, src: "/m6.jpg", title: "Workshop Session", description: "Hands-on training" },
+    { id: 6, src: "/m7.jpg", title: "Group Photo", description: "Memorable moments" },
+    { id: 7, src: "/m8.jpg", title: "Mason Meet 2023", description: "Previous year gathering" },
+    { id: 8, src: "/m9.jpg", title: "Product Demo", description: "Live demonstrations" },
+    { id: 9, src: "/m10.jpg", title: "Panel Discussion", description: "Expert insights" },
+    { id: 10, src: "/m11.jpg", title: "Cultural Event", description: "Entertainment program" },
+    { id: 11, src: "/m12.jpg", title: "Site Visit", description: "Factory tour" },
+    { id: 12, src: "/m7.jpg", title: "Closing Ceremony", description: "Event conclusion" },
   ]
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <section className="relative bg-gradient-to-r from-primary to-foreground text-primary-foreground py-20">
-        <div className="absolute inset-0 bg-[url('/steel-i-beams-warehouse.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative mx-auto max-w-7xl px-4">
-          <Link 
-            href="/gallery"
-            className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Gallery</span>
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Mason Meet Gallery</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl">
-            Discover the highlights from our annual Mason Meet events, workshops, and networking sessions
-          </p>
-        </div>
-      </section>
+      <section className="relative">
+   
+   <div className="relative w-full">
+     <img
+       src="/m1.jpg"
+       alt="Technology"
+       className="w-full h-auto object-cover"
+     />
+   </div>
+   <div className="absolute inset-0 flex items-center">
+     <div className="relative mx-auto max-w-6xl px-4 w-full">
+     </div>
+   </div>
+ </section>
+
 
       {/* Gallery Grid */}
       <section className="py-16 bg-background">
