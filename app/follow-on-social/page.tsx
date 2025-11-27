@@ -86,44 +86,21 @@ export default function FollowOnSocialPage() {
   };
 
   // YouTube API Configuration
-  const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "AIzaSyDWvmS1GN6O_Jo4rhOkN_xjYPL6n_tUs6o";
-  const YOUTUBE_API_URL = process.env.NEXT_PUBLIC_YOUTUBE_API_URL || "https://www.googleapis.com/youtube/v3/search";
-  const YOUTUBE_CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || "UCklMHyJsn8nImN-iKH57jSQ";
-  // YouTube Video URLs - Fallback option (NO CREDENTIALS NEEDED!)
-  // Just copy the URLs from YouTube videos you want to display
-  // Example: "https://www.youtube.com/watch?v=ABC123,https://www.youtube.com/watch?v=XYZ789"
-  const YOUTUBE_VIDEO_URLS = process.env.NEXT_PUBLIC_YOUTUBE_VIDEO_URLS
-    ? process.env.NEXT_PUBLIC_YOUTUBE_VIDEO_URLS.split(",")
-        .map((url) => url.trim())
-        .filter(Boolean)
-    : [];
+  const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "";
+  const YOUTUBE_BASE_API_URL = process.env.NEXT_PUBLIC_YOUTUBE_BASE_API_URL || "";
+  const YOUTUBE_CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || "";
+
+  // Instagram Page URL - Replace with your actual page URL
+  const INSTAGRAM_BASE_API_URL = process.env.NEXT_PUBLIC_INSTAGRAM_BASE_API_URL || "";
+  const INSTAGRAM_PAGE_ID = process.env.NEXT_PUBLIC_INSTAGRAM_PAGE_ID || "";
+  const INSTAGRAM_ACCESS_TOKEN = process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN || "";
+  const INSTAGRAM_USERNAME = process.env.NEXT_PUBLIC_INSTAGRAM_USERNAME || "";
 
   // Facebook Page URL - Replace with your actual page URL
-  const FACEBOOK_PAGE_URL =
-    process.env.NEXT_PUBLIC_FACEBOOK_PAGE_URL ||
-    "https://www.facebook.com/profile.php?id=61557173077553";
-  const FACEBOOK_PAGE_NAME =
-    process.env.NEXT_PUBLIC_FACEBOOK_PAGE_NAME || "Balmukund Super";
-
-  // Instagram Username - Replace with your actual username
-  const INSTAGRAM_USERNAME =
-    process.env.NEXT_PUBLIC_INSTAGRAM_USERNAME || "Balmukund Super";
-  // Instagram Post URLs - Comma-separated list of post URLs (NO CREDENTIALS NEEDED!)
-  // Just copy the URLs from Instagram posts you want to display
-  // Example: "https://www.instagram.com/p/ABC123/,https://www.instagram.com/p/XYZ789/"
-  const INSTAGRAM_POST_URLS = process.env.NEXT_PUBLIC_INSTAGRAM_POST_URLS
-    ? process.env.NEXT_PUBLIC_INSTAGRAM_POST_URLS.split(",")
-        .map((url) => url.trim())
-        .filter(Boolean)
-    : [];
-
-  // Facebook Post URLs - Comma-separated list of post URLs (NO CREDENTIALS NEEDED!)
-  // Optional: If provided, will show specific posts instead of the full page feed
-  const FACEBOOK_POST_URLS = process.env.NEXT_PUBLIC_FACEBOOK_POST_URLS
-    ? process.env.NEXT_PUBLIC_FACEBOOK_POST_URLS.split(",")
-        .map((url) => url.trim())
-        .filter(Boolean)
-    : [];
+  const FACEBOOK_BASE_API_URL = process.env.NEXT_PUBLIC_FACEBOOK_BASE_API_URL || "";
+  const FACEBOOK_PAGE_ID = process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || "";
+  const FACEBOOK_ACCESS_TOKEN = process.env.NEXT_PUBLIC_FACEBOOK_ACCESS_TOKEN || "";
+  const FACEBOOK_PAGE_URL = process.env.NEXT_PUBLIC_FACEBOOK_PAGE_URL || "";
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -168,7 +145,9 @@ export default function FollowOnSocialPage() {
             <div className="h-[600px] overflow-y-auto p-4">
               <FacebookFeedCompact
                 pageUrl={FACEBOOK_PAGE_URL}
-                postUrls={FACEBOOK_POST_URLS.length > 0 ? FACEBOOK_POST_URLS : []}
+                FACEBOOK_BASE_API_URL={FACEBOOK_BASE_API_URL}
+                FACEBOOK_PAGE_ID={FACEBOOK_PAGE_ID}
+                FACEBOOK_ACCESS_TOKEN={FACEBOOK_ACCESS_TOKEN}
                 mounted={mounted}
                 facebookReady={facebookReady}
               />
@@ -184,7 +163,9 @@ export default function FollowOnSocialPage() {
             
             <div className="h-[600px] overflow-y-auto p-4">
               <InstagramFeedCompact 
-                postUrls={INSTAGRAM_POST_URLS.length > 0 ? INSTAGRAM_POST_URLS : []} 
+                INSTAGRAM_BASE_API_URL={INSTAGRAM_BASE_API_URL}
+                INSTAGRAM_PAGE_ID={INSTAGRAM_PAGE_ID}
+                INSTAGRAM_ACCESS_TOKEN={INSTAGRAM_ACCESS_TOKEN}
                 username={INSTAGRAM_USERNAME}
               />
             </div>
@@ -199,10 +180,9 @@ export default function FollowOnSocialPage() {
 
             <div className="h-[600px] overflow-y-auto p-4">
               <YouTubeFeedCompact
-                apiKey={YOUTUBE_API_KEY}
-                apiUrl={YOUTUBE_API_URL}
-                channelId={YOUTUBE_CHANNEL_ID}
-                videoUrls={YOUTUBE_VIDEO_URLS.length > 0 ? YOUTUBE_VIDEO_URLS : []}
+                YOUTUBE_BASE_API_URL={YOUTUBE_BASE_API_URL}
+                YOUTUBE_CHANNEL_ID={YOUTUBE_CHANNEL_ID}
+                YOUTUBE_API_KEY={YOUTUBE_API_KEY}
                 mounted={mounted}
               />
             </div>
@@ -241,12 +221,16 @@ export default function FollowOnSocialPage() {
 // Fetches posts from your Facebook page using API credentials
 function FacebookFeedCompact({
   pageUrl,
-  postUrls,
+  FACEBOOK_BASE_API_URL,
+  FACEBOOK_PAGE_ID,
+  FACEBOOK_ACCESS_TOKEN,
   mounted,
   facebookReady,
 }: {
   pageUrl: string;
-  postUrls: string[];
+  FACEBOOK_BASE_API_URL: string;
+  FACEBOOK_PAGE_ID: string;
+  FACEBOOK_ACCESS_TOKEN: string;
   mounted: boolean;
   facebookReady: boolean;
 }) {
@@ -263,7 +247,7 @@ function FacebookFeedCompact({
   const fetchFacebookPosts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`https://graph.facebook.com/243404738861900/feed?fields=permalink_url,full_picture,message,created_time&access_token=EAFkZABfrgbO4BQG1tCeP9gj4zHygaP6bPIJj3GnfZBsLPfhuxZA3bqBO2pG84BasYzZBoybjTSuQPo2XWHfATrZA6artM5JaqwXkAlRm4Q3UFsZCg8tOKao8Sk8QZBHiYcwasYSNwM6WbynQKD657BFSe106WKOHhrmZCxDL607jMimxVx22cH9KZAbf4iJlJ01XdwWPZBaqlWZCKbJGebuuYZAmBMP4V3yJJkRzav8vWgZDZD&limit=5`);
+      const response = await fetch(`${FACEBOOK_BASE_API_URL}/${FACEBOOK_PAGE_ID}/feed?fields=permalink_url,full_picture,message,created_time&access_token=${FACEBOOK_ACCESS_TOKEN}&limit=5`);
       const data = await response.json();
       
       if (response.ok && data.data) {
@@ -414,11 +398,15 @@ function FacebookFeedCompact({
 // Instagram Feed Component using Instagram Graph API
 // Fetches posts from your Instagram account using API credentials
 function InstagramFeedCompact({
-  postUrls,
+  INSTAGRAM_BASE_API_URL,
+  INSTAGRAM_PAGE_ID,
+  INSTAGRAM_ACCESS_TOKEN,
   username,
 }: {
-  postUrls: string[];
-  username: string;
+  INSTAGRAM_BASE_API_URL: string,
+  INSTAGRAM_PAGE_ID: string,
+  INSTAGRAM_ACCESS_TOKEN: string,
+  username: string,
 }) {
   const [mounted, setMounted] = useState(false);
   const [posts, setPosts] = useState<any[]>([]);
@@ -433,7 +421,7 @@ function InstagramFeedCompact({
   const fetchInstagramPosts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`https://graph.instagram.com/17841465652366456/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=IGAAMFNV64ykFBZAFIyQ29aemFvcmVjTFdTRjBtRTNXRTJjLXUzWHF3YlBWVkRhc0NOd2dydjUxR0p6ZA000a1MtU3RUVC0zU20xZAEd0RXFwQVoxbTJJZAU1VdkljbGk4cVRKNzJkN0dKRm9Gcjh3cFRPcXM5MHJxUkIzX1JlYWxnSQZDZD&limit=5`);
+      const response = await fetch(`${INSTAGRAM_BASE_API_URL}/${INSTAGRAM_PAGE_ID}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=5`);
       const data = await response.json();
 
       if (response.ok && data.data) {
@@ -569,16 +557,14 @@ function InstagramFeedCompact({
 // YouTube Feed Component using YouTube Data API v3
 // Fetches videos from YouTube channel using API credentials
 function YouTubeFeedCompact({
-  apiKey,
-  apiUrl,
-  channelId,
-  videoUrls,
+  YOUTUBE_BASE_API_URL,
+  YOUTUBE_CHANNEL_ID,
+  YOUTUBE_API_KEY,
   mounted,
 }: {
-  apiKey: string;
-  apiUrl: string;
-  channelId: string;
-  videoUrls: string[];
+  YOUTUBE_BASE_API_URL: string;
+  YOUTUBE_CHANNEL_ID: string;
+  YOUTUBE_API_KEY: string;
   mounted: boolean;
 }) {
   const [videos, setVideos] = useState<any[]>([]);
@@ -588,15 +574,12 @@ function YouTubeFeedCompact({
 
   useEffect(() => {
     setYoutubeMounted(true);
-    if (mounted && apiKey && channelId) {
+    if (mounted && YOUTUBE_API_KEY && YOUTUBE_CHANNEL_ID) {
       fetchYouTubeVideos();
-    } else if (mounted && videoUrls.length > 0) {
-      // Fallback to static video URLs if API is not configured
-      setLoading(false);
     } else if (mounted) {
       setLoading(false);
     }
-  }, [mounted, apiKey, channelId]);
+  }, [mounted, YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID]);
 
   const fetchYouTubeVideos = async () => {
     try {
@@ -621,7 +604,7 @@ function YouTubeFeedCompact({
       //   }
       // }
 
-      const response = await fetch(`${apiUrl}?key=${apiKey}&channelId=${channelId}&order=date&part=snippet`);
+      const response = await fetch(`${YOUTUBE_BASE_API_URL}?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&order=date&part=snippet`);
       const data = await response.json();
 
       if (response.ok && data.items) {
@@ -674,10 +657,10 @@ function YouTubeFeedCompact({
             </button>
           </div>
         </div>
-        {channelId && (
+        {YOUTUBE_CHANNEL_ID && (
           <div className="text-center">
             <a
-              href={`https://www.youtube.com/channel/${channelId}`}
+              href={`https://www.youtube.com/channel/${YOUTUBE_CHANNEL_ID}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-red-600 hover:text-red-800 text-sm font-semibold"
@@ -692,15 +675,7 @@ function YouTubeFeedCompact({
   }
 
   // Use API videos if available, otherwise fallback to static video URLs
-  const videosToDisplay = videos.length > 0 ? videos : videoUrls.map((url, index) => {
-    const getVideoId = (url: string) => {
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-      const match = url.match(regExp);
-      return (match && match[2].length === 11) ? match[2] : null;
-    };
-    const videoId = getVideoId(url);
-    return videoId ? { id: videoId, videoUrl: url } : null;
-  }).filter(Boolean);
+  const videosToDisplay = videos.length > 0 ? videos : [];
 
   // If no videos available
   if (videosToDisplay.length === 0) {
@@ -711,16 +686,16 @@ function YouTubeFeedCompact({
             <Youtube className="w-10 h-10 mx-auto mb-2" />
             <p className="text-xs font-semibold">No videos available</p>
             <p className="text-xs mt-2 opacity-90">
-              {apiKey && channelId 
+              {YOUTUBE_API_KEY && YOUTUBE_CHANNEL_ID 
                 ? "Check your YouTube API credentials" 
                 : "Configure YouTube API key and channel ID"}
             </p>
           </div>
         </div>
-        {channelId && (
+        {YOUTUBE_CHANNEL_ID && (
           <div className="text-center">
             <a
-              href={`https://www.youtube.com/channel/${channelId}`}
+              href={`https://www.youtube.com/channel/${YOUTUBE_CHANNEL_ID}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-red-600 hover:text-red-800 text-sm font-semibold"
@@ -802,8 +777,8 @@ function YouTubeFeedCompact({
       <div className="text-center">
         <a
           href={
-            channelId
-              ? `https://www.youtube.com/channel/${channelId}`
+            YOUTUBE_CHANNEL_ID
+              ? `https://www.youtube.com/channel/${YOUTUBE_CHANNEL_ID}`
               : "https://www.youtube.com"
           }
           target="_blank"
