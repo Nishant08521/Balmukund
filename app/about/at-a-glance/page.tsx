@@ -68,7 +68,7 @@ export default function AtAGlancePage() {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/overview.jpg" 
+                src="/profile.webp" 
                 alt="Our Profile - Steel Products" 
                 className="w-full h-full object-cover"
               />

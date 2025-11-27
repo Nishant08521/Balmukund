@@ -51,7 +51,7 @@ export default function CareersPage() {
       <section className="relative">
         <div className="relative w-full">
           <Image
-            src="/overview.jpg"
+            src="/careers1.webp"
             alt="Careers"
             width={1920}
             height={283}
@@ -75,19 +75,19 @@ export default function CareersPage() {
               
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  At Balmukund Super Steel, we believe in nurturing talent and fostering a work culture that promotes growth, innovation, and excellence. We are always looking for passionate individuals who share our vision and values.
+                Balmukund Super Steel has always focused on selecting the right resource that is essential for its growth. At Balmukund Super Steel, talent is well-nurtured and rewarded. The resource is valued as an asset to the organization. We believe in the combination of performance and personal orientation of work culture to promote the overall growth of the employees. Hence, we provide opportunities to the employees to maintain an excellent work-life balance.
                 </p>
                 
                 <p>
-                  Our company values are built on the pillars of <strong>honesty</strong>, <strong>integrity</strong>, <strong>community</strong>, <strong>knowledge</strong>, and <strong>innovation</strong>. We create a progressive environment where every team member can thrive and contribute to our collective success.
+                We value and reward honesty and integrity at work. At Balmukund Super Steel, we are glad to share a sense of community and work in an environment that values knowledge and innovation. Friendly, courteous yet professional communication between the management and employees based on the company’s culture.
                 </p>
                 
                 <p>
-                  Whether you're an experienced professional or a fresh graduate, we offer opportunities across various departments including production, quality assurance, engineering, sales, marketing, and administration.
+                Working for Balmukund Super Steel in a progressive and technology-driven environment is never boring. Initiative, innovation, teamwork and leadership are some of the most intrinsic qualities we look for. The Company offers as per the industry standards and rewards the right candidate fitting the profile.
                 </p>
                 
                 <p className="font-bold text-lg text-blue-900">
-                  Come, join us and make a difference to the Balmukund Super Steel Family as well as to your career.
+                Come, join us and make a difference to the Balmukund Super Steel Family as well as to your career.
                 </p>
               </div>
 

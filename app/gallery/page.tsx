@@ -122,10 +122,13 @@ export default function GalleryPage() {
               </p>
               
               {/* View More Button */}
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-white rounded-lg font-semibold hover:bg-foreground/90 transition-colors">
+              <Link
+                href="/video-gallery"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-white rounded-lg font-semibold hover:bg-foreground/90 transition-colors"
+              >
                 View More
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
             </div>
 
             {/* Video Grid - 6 Videos */}

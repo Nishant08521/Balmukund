@@ -1,12 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ArrowUpRight, Play } from "lucide-react"
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 export default function VoiceOfBalmukundPage() {
   const statistics = [
@@ -84,7 +80,7 @@ export default function VoiceOfBalmukundPage() {
       <section className="relative">
         <div className="relative w-full">
           <img
-            src="/overview.jpg"
+            src="/voice.jpg"
             alt="Voice of Balmukund"
             className="w-full h-auto object-cover"
           />
@@ -143,36 +139,18 @@ export default function VoiceOfBalmukundPage() {
             {/* Left Video Gallery */}
             <div className="space-y-3 md:space-y-4 lg:space-y-4 lg:mr-0.5 xl:mr-0.5">
               {[
-                { id: 1, thumbnail: "/steel-i-beams-warehouse.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Testimonial 1" },
-                { id: 2, thumbnail: "/closeup-of-tmt-steel-bars-bundled.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Testimonial 2" },
+                { id: 1, videoUrl: "https://www.youtube.com/embed/KRNOqB3zUi4?start=15", title: "Testimonial 1" },
+                { id: 2, videoUrl: "https://www.youtube.com/embed/3QeH4umtdyo", title: "Testimonial 2" },
               ].map((video) => (
-                <Dialog key={video.id}>
-                  <DialogTrigger asChild>
-                    <div className="group relative aspect-[4/5] md:aspect-[4/5] lg:aspect-[4/5] overflow-hidden rounded-lg cursor-pointer shadow-lg hover:shadow-xl transition-shadow">
-                      <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-red-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                          <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" />
-                        </div>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl p-0 bg-black border-0">
-                    <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
-                      <iframe
-                        src={video.videoUrl}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title={video.title}
-                      ></iframe>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <div key={video.id} className="aspect-[4/5] md:aspect-[4/5] lg:aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
+                  <iframe
+                    src={video.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={video.title}
+                  ></iframe>
+                </div>
               ))}
             </div>
 
@@ -186,45 +164,30 @@ export default function VoiceOfBalmukundPage() {
                   At Balmukund Super Steel, we believe that our dealers, customers, contractors, and masons are our true brand ambassadors. Their trust and satisfaction drive our commitment to excellence.
                 </p>
               </div>
-              <button className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors w-fit text-sm md:text-base lg:text-lg">
+              <Link
+                href="/voice-of-balmukund-gallery"
+                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors w-fit text-sm md:text-base lg:text-lg"
+              >
                 View more
                 <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
-              </button>
+              </Link>
             </div>
 
             {/* Center Video Gallery */}
             <div className="space-y-3 md:space-y-4 lg:space-y-4 lg:mr-0.5 xl:mr-0.5">
               {[
-                { id: 3, thumbnail: "/sponge-iron-pellets-macro.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Testimonial 3" },
-                { id: 4, thumbnail: "/pig-iron-ingots-stacked.jpg", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Testimonial 4" },
+                { id: 3, videoUrl: "https://www.youtube.com/embed/0t66czBDc_s", title: "Testimonial 3" },
+                { id: 4, videoUrl: "https://www.youtube.com/embed/pDSAheZmA1Y?start=1", title: "Testimonial 4" },
               ].map((video) => (
-                <Dialog key={video.id}>
-                  <DialogTrigger asChild>
-                    <div className="group relative aspect-[4/5] md:aspect-[4/5] lg:aspect-[4/5] overflow-hidden rounded-lg cursor-pointer shadow-lg hover:shadow-xl transition-shadow">
-                      <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-red-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                          <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" />
-                        </div>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl p-0 bg-black border-0">
-                    <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
-                      <iframe
-                        src={video.videoUrl}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title={video.title}
-                      ></iframe>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <div key={video.id} className="aspect-[4/5] md:aspect-[4/5] lg:aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
+                  <iframe
+                    src={video.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={video.title}
+                  ></iframe>
+                </div>
               ))}
             </div>
 
@@ -238,10 +201,13 @@ export default function VoiceOfBalmukundPage() {
                   Our steel and cement derivative products are the foundation of your dream projects. Hear from our dealers, customers, and partners about their experience with Balmukund Super Steel.
                 </p>
               </div>
-              <button className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors w-fit text-sm md:text-base lg:text-lg">
+              <Link
+                href="/voice-of-balmukund-gallery"
+                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors w-fit text-sm md:text-base lg:text-lg"
+              >
                 View more
                 <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

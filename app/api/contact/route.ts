@@ -14,16 +14,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Validate email credentials
-    const emailUser = process.env.EMAIL_USER || 'nishantkumarsingh0852@gmail.com'
-    const emailPassword = process.env.EMAIL_PASSWORD
-
-    if (!emailPassword) {
-      return NextResponse.json(
-        { error: 'Email configuration error: EMAIL_PASSWORD is not set. Please configure your .env.local file with your Gmail App Password.' },
-        { status: 500 }
-      )
-    }
+    // Email credentials - can be overridden by environment variables
+    const emailUser = process.env.EMAIL_USER || 'man.in.dev.16@gmail.com'
+    const emailPassword = process.env.EMAIL_PASSWORD || 'olzk vzah iwne yyyj'
+    const recipientEmail = process.env.CONTACT_EMAIL || 'nishantkumarsingh0852@gmail.com'
 
     // Create transporter (using Gmail as example - you'll need to configure this)
     const transporter = nodemailer.createTransport({
@@ -37,7 +31,7 @@ export async function POST(request: NextRequest) {
     // Email content
     const mailOptions = {
       from: emailUser,
-      to: process.env.CONTACT_EMAIL || 'nishantkumarsingh0852@gmail.com', // Your receiving email
+      to: recipientEmail, // Your receiving email
       subject: `Contact Form: ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
