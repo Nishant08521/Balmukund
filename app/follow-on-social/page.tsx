@@ -247,11 +247,15 @@ function FacebookFeedCompact({
   const fetchFacebookPosts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${FACEBOOK_BASE_API_URL}/${FACEBOOK_PAGE_ID}/feed?fields=permalink_url,full_picture,message,created_time&access_token=${FACEBOOK_ACCESS_TOKEN}&limit=5`);
+      const response = await fetch(`${FACEBOOK_BASE_API_URL}/${FACEBOOK_PAGE_ID}/feed?fields=permalink_url,full_picture,message,created_time,status_type&access_token=${FACEBOOK_ACCESS_TOKEN}`);
       const data = await response.json();
       
       if (response.ok && data.data) {
-        setPosts(data.data);
+        // Filter to only show posts with photos or videos
+        const filteredPosts = data.data.filter((post: any) => 
+          post.status_type === 'added_photos' || post.status_type === 'added_video'
+        );
+        setPosts(filteredPosts);
       } else {
         setError(data.error || 'Failed to fetch Facebook posts');
       }
@@ -336,19 +340,54 @@ function FacebookFeedCompact({
             })
           : '';
         
-        // Get image from post
-        // const postImage = post.permalink_url;
+        // Check if post is a photo or video
+        const isPhoto = post.status_type === 'added_photos';
+        const isVideo = post.status_type === 'added_video';
 
         return (
           <div key={post.id} className="border rounded-lg overflow-hidden bg-white shadow-sm">
             {/* Post Image */}
-            {post.full_picture && (
+            {isPhoto && post.full_picture && (
               <div className="relative w-full aspect-video">
                 <img
                   src={post.full_picture}
                   alt={post.message || 'Facebook post'}
                   className="w-full h-full object-cover"
                 />
+              </div>
+            )}
+            
+            {/* Post Video */}
+            {isVideo && post.source && (
+              <div className="relative w-full aspect-video bg-black">
+                <video
+                  src={post.source}
+                  controls
+                  className="w-full h-full object-contain"
+                  preload="metadata"
+                  poster={post.picture || post.full_picture || undefined}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            )}
+            
+            {/* Fallback: Show thumbnail if video source is not available */}
+            {isVideo && !post.source && post.full_picture && (
+              <div className="relative w-full aspect-video">
+                <img
+                  src={post.full_picture}
+                  alt={post.message || 'Facebook video post'}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+                  <div className="text-white text-center">
+                    <svg className="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <p className="text-xs">Video</p>
+                  </div>
+                </div>
               </div>
             )}
             
@@ -359,10 +398,6 @@ function FacebookFeedCompact({
                   {post.message}
                 </p>
               )}
-              
-              {/* {postDate && (
-                <p className="text-xs text-gray-500 mb-2">{postDate}</p>
-              )} */}
               
               {post.permalink_url && (
                 <a
@@ -424,7 +459,8 @@ function InstagramFeedCompact({
       const response = await fetch(`${INSTAGRAM_BASE_API_URL}/${INSTAGRAM_PAGE_ID}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}`);
       let data = await response.json();
 
-      data = data.data.filter((item: any) => item.media_type === 'IMAGE').slice(0, 5);
+      // Filter to only show IMAGE and VIDEO types, limit to 5 posts
+      data = data.data.filter((item: any) => item.media_type === 'IMAGE' || item.media_type === 'VIDEO');
 
       if (response.ok && data.length > 0) {
         setPosts(data);
@@ -508,16 +544,32 @@ function InstagramFeedCompact({
         </p>
       </div>
       {posts.map((post) => {
-        // Display Instagram post with image and caption
+        // Display Instagram post with image, video, or caption
+        const isVideo = post.media_type === 'VIDEO';
+        const isImage = post.media_type === 'IMAGE';
+        
         return (
           <div key={post.id} className="border rounded-lg overflow-hidden bg-white">
-            {post.media_url && (
+            {isImage && post.media_url && (
               <div className="relative w-full aspect-square">
                 <img
                   src={post.media_url}
                   alt={post.caption || 'Instagram post'}
                   className="w-full h-full object-cover"
                 />
+              </div>
+            )}
+            {isVideo && post.media_url && (
+              <div className="relative w-full aspect-square bg-black">
+                <video
+                  src={post.media_url}
+                  controls
+                  className="w-full h-full object-contain"
+                  preload="metadata"
+                  poster={post.thumbnail_url || undefined}
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             )}
             {post.caption && (
