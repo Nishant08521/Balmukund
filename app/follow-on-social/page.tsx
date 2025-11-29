@@ -421,13 +421,15 @@ function InstagramFeedCompact({
   const fetchInstagramPosts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${INSTAGRAM_BASE_API_URL}/${INSTAGRAM_PAGE_ID}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=5`);
-      const data = await response.json();
+      const response = await fetch(`${INSTAGRAM_BASE_API_URL}/${INSTAGRAM_PAGE_ID}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}`);
+      let data = await response.json();
 
-      if (response.ok && data.data) {
-        setPosts(data.data);
+      data = data.data.filter((item: any) => item.media_type === 'IMAGE').slice(0, 5);
+
+      if (response.ok && data.length > 0) {
+        setPosts(data);
       } else {
-        setError(data.error || 'Failed to fetch Instagram posts');
+        setError('Failed to fetch Instagram posts');
       }
     } catch (err: any) {
       setError(err.message || 'Failed to fetch Instagram posts');
@@ -604,7 +606,7 @@ function YouTubeFeedCompact({
       //   }
       // }
 
-      const response = await fetch(`${YOUTUBE_BASE_API_URL}?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&order=date&part=snippet`);
+      const response = await fetch(`${YOUTUBE_BASE_API_URL}?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&order=date&part=snippet&maxResults=5`);
       const data = await response.json();
 
       if (response.ok && data.items) {
