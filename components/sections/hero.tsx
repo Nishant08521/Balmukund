@@ -91,11 +91,11 @@ export function Hero() {
           <CarouselContent className="rounded-none border-0">
             {slides.map((s, index) => (
               <CarouselItem key={s.src} className="p-0">
-                <div className="relative h-[60vh] md:h-[75vh] w-full bg-secondary">
+                <div className="relative w-full bg-secondary md:h-[75vh]">
                   <img
                     src={s.src || "/placeholder.svg?height=800&width=1600&query=steel+industry+banner"}
                     alt={s.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto md:h-full md:object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
                   
