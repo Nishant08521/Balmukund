@@ -29,7 +29,7 @@ const NAV_ITEMS: NavMenuItem[] = [
   { href: "/quality-assurance", label: "Quality Assurance" },
   { href: "/balmukund-superstar", label: "Balmukund SuperStar" },
   { 
-    label: "Compliance (Sponge Iron) ", 
+    label: "Compliance ", 
     submenu: [
       { 
         label: "EC",
@@ -62,6 +62,7 @@ const NAV_ITEMS: NavMenuItem[] = [
       { href: "https://balmukund.com/wp-content/uploads/2025/06/ES-BSIPL-MEGA-DIV.-FY2024-25.pdf", label: "ENVIROMENT STATEMENT" },
     ]
   },
+  { href: "#", label: "Compliance(Sponge Iron)" },
   { 
     label: "Products", 
     submenu: [
@@ -160,8 +161,8 @@ export function Header() {
 
         {/* Tabbed navigation bar */}
         <div className="bg-secondary w-full">
-          <div className="mx-auto max-w-6xl px-4">
-            <nav className="hidden md:flex items-center gap-6 h-12">
+          <div className="mx-auto max-w-6xl px-1">
+            <nav className="hidden md:flex items-center gap-4 h-12 flex-nowrap">
               {NAV_ITEMS.map((item) => {
                 if (item.submenu) {
                   return (
@@ -173,7 +174,7 @@ export function Header() {
                     >
                       <button
                         className={cn(
-                          "inline-flex items-center gap-1 text-sm font-medium transition-colors h-12",
+                          "inline-flex items-center gap-1 text-sm font-medium transition-colors h-12 whitespace-nowrap",
                           openDropdown === item.label ? "text-orange-500" : "text-foreground/80 hover:text-orange-500"
                         )}
                       >
@@ -333,7 +334,7 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "relative text-sm font-medium transition-colors",
+                      "relative text-sm font-medium transition-colors whitespace-nowrap",
                       active ? "text-orange-500" : "text-foreground/80 hover:text-orange-500",
                     )}
                   >
