@@ -60,6 +60,14 @@ const NAV_ITEMS: NavMenuItem[] = [
         ]
       },
       { href: "https://balmukund.com/wp-content/uploads/2025/06/ES-BSIPL-MEGA-DIV.-FY2024-25.pdf", label: "ENVIROMENT STATEMENT" },
+      { 
+        label: "REPORTS",
+        submenu: [
+          { href: "/Sponge_2025.pdf", label: "CSR" },
+         
+          
+        ]
+      },
     ]
   },
   { href: "#", label: "Compliance(Sponge Iron)" },
@@ -100,6 +108,12 @@ export function Header() {
     if (!href) return false
     if (href === "/") return pathname === "/"
     return pathname.startsWith(href)
+  }
+
+  const shouldOpenInNewTab = (href?: string) => {
+    if (!href) return false
+    // Check if it's a PDF file or external URL
+    return href.endsWith('.pdf') || href.startsWith('http://') || href.startsWith('https://')
   }
 
   const isHomePage = pathname === "/"
@@ -260,6 +274,8 @@ export function Header() {
                                                         <Link
                                                           key={thirdItem.href}
                                                           href={thirdItem.href}
+                                                          target={shouldOpenInNewTab(thirdItem.href) ? "_blank" : undefined}
+                                                          rel={shouldOpenInNewTab(thirdItem.href) ? "noopener noreferrer" : undefined}
                                                           className={cn(
                                                             "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
                                                             isActive(thirdItem.href) ? "text-orange-500 font-medium" : "text-foreground/80 hover:text-orange-500"
@@ -283,6 +299,8 @@ export function Header() {
                                               nestedItem.href ? (
                                                 <Link
                                                   href={nestedItem.href}
+                                                  target={shouldOpenInNewTab(nestedItem.href) ? "_blank" : undefined}
+                                                  rel={shouldOpenInNewTab(nestedItem.href) ? "noopener noreferrer" : undefined}
                                                   className={cn(
                                                     "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
                                                     isActive(nestedItem.href) ? "text-orange-500 font-medium" : "text-foreground/80 hover:text-orange-500"
@@ -306,6 +324,8 @@ export function Header() {
                                 subitem.href ? (
                                   <Link
                                     href={subitem.href}
+                                    target={shouldOpenInNewTab(subitem.href) ? "_blank" : undefined}
+                                    rel={shouldOpenInNewTab(subitem.href) ? "noopener noreferrer" : undefined}
                                     className={cn(
                                       "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
                                       isActive(subitem.href) ? "text-orange-500 font-medium" : "text-foreground/80 hover:text-orange-500"
