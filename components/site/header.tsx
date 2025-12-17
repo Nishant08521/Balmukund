@@ -46,7 +46,7 @@ const NAV_ITEMS: NavMenuItem[] = [
           { 
             label: "MBF",
             submenu: [
-              { href: "/BSIPL-MBF.pdf ", label: "March" },
+              { href: "/BSIPL-MBF.PDF", label: "March" },
               { href: "/BSIPL MBF EC Compl. Sep'25.pdf", label: "SEPETMEBER" }
             ]
           },
@@ -59,7 +59,7 @@ const NAV_ITEMS: NavMenuItem[] = [
           }
         ]
       },
-      { href: "/ES-BSIPL.pdf", label: "ENVIROMENT STATEMENT" },
+      { href: "/ES-BSIPL.PDF", label: "ENVIROMENT STATEMENT" },
       { 
         label: "REPORTS",
         submenu: [
