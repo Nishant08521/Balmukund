@@ -34,9 +34,9 @@ const NAV_ITEMS: NavMenuItem[] = [
       { 
         label: "EC",
         submenu: [
-          { href: "https://balmukund.com/wp-content/uploads/2024/07/ModernisationExpansion-of-SMS-RM-.pdf", label: "MODRNISATION AND EXPANSION OF SMS IOB & RM" },
+          { href: "/merged.pdf", label: "MODRNISATION AND EXPANSION OF SMS IOB & RM" },
           // { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-SMS-And-IOB.pdf", label: "SMS IOB" },
-          { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-MBF-1.pdf", label: "MBF" },
+          { href: "/EC-Pig Iron(MBF).pdf", label: "MBF" },
           
         ]
       },
@@ -46,20 +46,20 @@ const NAV_ITEMS: NavMenuItem[] = [
           { 
             label: "MBF",
             submenu: [
-              { href: "https://balmukund.com/wp-content/uploads/2025/06/BSIPLMBFECCompl.March25.pdf", label: "March" },
-              { href: "/compliance/mbf/september", label: "SEPETMEBER" }
+              { href: "/BSIPL MBF EC Compl. March'25.pdf", label: "March" },
+              { href: "/BSIPL MBF EC Compl. Sep'25.pdf", label: "SEPETMEBER" }
             ]
           },
           { 
             label: "SMS IOB AND RM",
             submenu: [
-              { href: "https://balmukund.com/wp-content/uploads/2025/06/BSIPL-EC-Comp.-Exp.-March25-compressed.pdf", label: "March" },
-              { href: "/compliance/mbf/september", label: "SEPETMEBER" }
+              { href: "/BSIPL EC Comp. Exp. March'25.pdf", label: "March" },
+              { href: "/BSIPL EC Comp. Exp. Sep'25.pdf", label: "SEPETMEBER" }
             ]
           }
         ]
       },
-      { href: "https://balmukund.com/wp-content/uploads/2025/06/ES-BSIPL-MEGA-DIV.-FY2024-25.pdf", label: "ENVIROMENT STATEMENT" },
+      { href: "/ES BSIPL (MEGA DIV.)-  FY2024-25.pdf", label: "ENVIROMENT STATEMENT" },
       { 
         label: "REPORTS",
         submenu: [
