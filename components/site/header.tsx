@@ -71,7 +71,15 @@ const NAV_ITEMS: NavMenuItem[] = [
     ]
   },
   
-  { href: "#", label: "Compliance(Sponge Iron)" },
+  { label: "Compliance(Sponge Iron)" ,
+  submenu:[
+    { href: "/", label: "EC" },
+    { href: "/", label: "EC COMPLIANCE" },
+    { href: "/", label: "ENVIROMENT STATEMENT" },
+    
+  ]
+    
+  },
   { 
     label: "Products", 
     submenu: [
