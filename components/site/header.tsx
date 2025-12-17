@@ -46,7 +46,7 @@ const NAV_ITEMS: NavMenuItem[] = [
           { 
             label: "MBF",
             submenu: [
-              { href: "/BSIPL-MBF.PDF", label: "March" },
+              { href: "/BSIPL-MBF.PDF", label: "MARCH" },
               { href: "/BSIPL MBF EC Compl. Sep'25.pdf", label: "SEPETMEBER" }
             ]
           },
@@ -74,7 +74,15 @@ const NAV_ITEMS: NavMenuItem[] = [
   { label: "Compliance(Sponge Iron)" ,
   submenu:[
     { href: "/", label: "EC" },
-    { href: "/", label: "EC COMPLIANCE" },
+    { 
+      label: "EC COMPLIANCE",
+      submenu: [
+        { href: "/", label: "MARCH" },
+        { href: "/", label: "SEPETMEBER" },
+        
+      ]
+    },
+
     { href: "/", label: "ENVIROMENT STATEMENT" },
     
   ]
