@@ -34,14 +34,14 @@ const NAV_ITEMS: NavMenuItem[] = [
       { 
         label: "EC",
         submenu: [
-          { href: "https://balmukund.com/wp-content/uploads/2024/07/ModernisationExpansion-of-SMS-RM-.pdf", label: "MODRNISATION AND EXPANSION OF SMS & RM" },
-          { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-SMS-And-IOB.pdf", label: "SMS IOB" },
+          { href: "https://balmukund.com/wp-content/uploads/2024/07/ModernisationExpansion-of-SMS-RM-.pdf", label: "MODRNISATION AND EXPANSION OF SMS IOB & RM" },
+          // { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-SMS-And-IOB.pdf", label: "SMS IOB" },
           { href: "https://balmukund.com/wp-content/uploads/2024/07/EC-MBF-1.pdf", label: "MBF" },
           
         ]
       },
       { 
-        label: "EC AND COMPLIANCE",
+        label: "EC COMPLIANCE",
         submenu: [
           { 
             label: "MBF",
@@ -51,7 +51,7 @@ const NAV_ITEMS: NavMenuItem[] = [
             ]
           },
           { 
-            label: "SMS AND IOB",
+            label: "SMS IOB AND IOB",
             submenu: [
               { href: "https://balmukund.com/wp-content/uploads/2025/06/BSIPL-EC-Comp.-Exp.-March25-compressed.pdf", label: "March" },
               { href: "/compliance/mbf/september", label: "SEPETMEBER" }
