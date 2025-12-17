@@ -51,7 +51,7 @@ const NAV_ITEMS: NavMenuItem[] = [
             ]
           },
           { 
-            label: "SMS IOB AND IOB",
+            label: "SMS IOB AND RM",
             submenu: [
               { href: "https://balmukund.com/wp-content/uploads/2025/06/BSIPL-EC-Comp.-Exp.-March25-compressed.pdf", label: "March" },
               { href: "/compliance/mbf/september", label: "SEPETMEBER" }
