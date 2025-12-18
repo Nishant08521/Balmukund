@@ -73,17 +73,17 @@ const NAV_ITEMS: NavMenuItem[] = [
   
   { label: "Compliance(Sponge Iron)" ,
   submenu:[
-    { href: "/", label: "EC" },
+    { href: "/EC Granted.pdf", label: "EC" },
     { 
       label: "EC COMPLIANCE",
       submenu: [
         { href: "/", label: "MARCH" },
-        { href: "/", label: "SEPETMEBER" },
+        { href: "/EC Compl BSIPL Sponge Div Sep'25.PDF", label: "SEPETMEBER" },
         
       ]
     },
 
-    { href: "/", label: "ENVIROMENT STATEMENT" },
+    { href: "/ES BSIPL(SPONGE DIV)-  FY2024-25.PDF", label: "ENVIROMENT STATEMENT" },
     
   ]
     
